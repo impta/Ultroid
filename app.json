@@ -24,6 +24,16 @@
             "value": "",
             "required": false
         },
+        "LOG_CHANNEL": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
+        "BOT_TOKEN": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
         "MONGO_URI": {
             "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
             "value": "",
