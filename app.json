@@ -9,9 +9,9 @@
         "python",
         "ultroid"
     ],
-    "repository": "https://github.com/TeamUltroid/Ultroid",
-    "website": "https://ultroid.tech",
-    "success_url": "https://t.me/TheUltroid",
+    "repository": "https://github.com/impta/Ultroid",
+    "website": "https://elenlil.co",
+    "success_url": "https://t.me/ElenLiL",
     "stack": "container",
     "env": {
         "API_ID": {
@@ -20,6 +20,16 @@
             "required": false
         },
         "API_HASH": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
+        "MONGO_URI": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
+        "DATABASE_URL": {
             "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
             "value": "",
             "required": false
