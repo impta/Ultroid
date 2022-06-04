@@ -2,8 +2,8 @@ name: Indonesia
 natively: Indonesia
 
 authors:
-  - itsmenandos
-  - mrismanaziz
+  - ElenLiL
+  - ShayA
 
 # commons
 com_1: "`Sedang Memproses...`"
@@ -121,12 +121,12 @@ autopic_4: "AUTOPIC tidak digunakan !!"
 autopic_5: "AUTOPIC Berhenti!"
 
 # inline
-inline_1: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nPʟᴜɢɪɴs ~ {}**"
-inline_2: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}**"
-inline_3: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}\n\nᴋᴇᴛɪᴋ `.setdb ADDONS True` ᴅᴀɴ ʀᴇsᴛᴀʀᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴀᴅᴅᴏɴs.**"
+inline_1: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nPʟᴜɢɪɴs ~ {}**"
+inline_2: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}**"
+inline_3: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}\n\nᴋᴇᴛɪᴋ `.setdb ADDONS True` ᴅᴀɴ ʀᴇsᴛᴀʀᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴀᴅᴅᴏɴs.**"
 inline_4: "** Bᴏᴛ Oғ {}\n\nMᴀɪɴ Mᴇɴᴜ\n\nPʟᴜɢɪɴs ~ {}\nAᴅᴅᴏɴs ~ {}\nTᴏᴛᴀʟ Cᴏᴍᴍᴀɴᴅs ~ {}**"
 inline_5: "**Mᴇɴᴜ Tᴇʟᴀʜ Dɪᴛᴜᴛᴜᴘ**"
-inline_6: "**Menu Bantuan untuk Voice Chat {}**\n**Perintah yang tersedia:** `{}`\n\n@TeamUltroid"
+inline_6: "**Menu Bantuan untuk Voice Chat {}**\n**Perintah yang tersedia:** `{}`\n\n@ElenLiL"
 inline_7: "Ketik `.help {}` untuk mendapatkan daftar perintah."
 inline_8: "Klik tombol di bawah ini untuk memperbarui!"
 inline_9: "Anda Sudah Menggunakan Versi Terbaru"
@@ -156,8 +156,8 @@ bot_2: "Stats"
 bot_3: "Repo"
 bot_4: "Support"
 bot_5: "`Sedang Merestart...`"
-alive_1: "**The Ultroid Userbot...**\n\n**{}**\n\n┏━━━━━━━━━━━━━━━━━━━━━\n┣ **Owner** - `{}`\n┣ **Version** - `{}`\n┣ **Py-Ultroid** - `{}`\n┣ **UpTime** - `{}`\n┣ **Python** - `{}`\n┣ **Telethon** - `{}`\n┣ **Branch** - `{}`\n┗━━━━━━━━━━━━━━━━━━━━━"
-log: "**Heroku** Ultroid Logs.\nPasted [here]({}) too!"
+alive_1: "**The ElenLiL Userbot...**\n\n**{}**\n\n┏━━━━━━━━━━━━━━━━━━━━━\n┣ **Owner** - `{}`\n┣ **Version** - `{}`\n┣ **Py-Ultroid** - `{}`\n┣ **UpTime** - `{}`\n┣ **Python** - `{}`\n┣ **Telethon** - `{}`\n┣ **Branch** - `{}`\n┗━━━━━━━━━━━━━━━━━━━━━"
+log: "**Heroku** ElenLiL Logs.\nPasted [here]({}) too!"
 ping: "**Pong !!** `{}ms`\n**Uptime** - `{}`"
 usage: "**⚙️ Informasi Dyno ⚙️**:\n\n➠ **Penggunaan Dyno** `{}`:\n  •  **{}h**  **{}m |** `[{}%]`\n➠ **Sisa kuota dyno bulan ini :**\n  •  **{}h**  **{}m |** `[{}%]`\n\n**Total Ruang Disk:**: `{}`\n**Terpakai**: `{}`\n**Kosong**: `{}`\n\n**📊 Penggunaan Data 📊**\n**Upload**: `{}`\n**Down**: `{}`\n\n**CPU**: `{}%`\n**RAM**: `{}%`\n**DISK**: `{}%`"
 usage_simple: "**Total Ruang Disk:** `{}`\n**Terpakai:** `{}`\n**Kosong:** `{}`\n\n**📊 Penggunaan Data 📊**\n**Upload**: `{}`\n**Down**: `{}`\n\n**CPU**: `{}%`\n**RAM**: `{}%`\n**DISK**: `{}%`"
@@ -183,7 +183,7 @@ bd_8: "`Menghapus...`"
 bd_9: "Channel sudah dihapus dari database."
 
 # calculator
-calc_1: "• Ultroid Inline Calculator •"
+calc_1: "• ElenLiL Inline Calculator •"
 calc_2: "Buka Kalkulator Lagi"
 
 # channel hacks
@@ -211,7 +211,7 @@ chats_1: "`Tidak dapat menghapus obrolan ini`"
 chats_2: "`Saya bukan admin`"
 chats_3: "**#Dihapus**\nMenghapus {}"
 chats_4: "Berhasil Membuat [{}]({}) Grup Anda!"
-chats_5: "Join @TeamUltroid"
+chats_5: "Join @ElenLiLBoT"
 chats_6: "Grup/Channel {} Anda Telah Menjadi Bos!"
 
 # clean action
@@ -292,10 +292,10 @@ sf_14: "SuperFBan Selesai.\nTotal Feds - {}.\nPengecualian - {}.\n Pengaruh {} f
 sf_15: "Memulai Mass-UnFedBan..."
 sf_16: "SuperUnFBan Selesai.\nTotal Feds - {}.\nPengecualian - {}.\n Pengaruh {} feds.\n#TB"
 sf_17: "`Beri saya id seseorang, atau balas pesan seseorang untuk memeriksa fedstatnya.`"
-sf_18: "Daftar feds {} telah dibanned.\n\nDikumpulkan menggunakan Ultroid."
+sf_18: "Daftar feds {} telah dibanned.\n\nDikumpulkan menggunakan ElenLiL."
 sf_19: "**Kesalahan**\n `Unblock` @MissRose_Bot `dan coba lagi!"
 sf_20: "`Mengekstrak informasi...`"
-sf_21: "\n\nFedInfo diekstrak oleh Ultroid"
+sf_21: "\n\nFedInfo diekstrak oleh ElenLiL"
 sf_22: "Tidak ada pengguna yang ditunjuk."
 sf_23: "**Error**\n**Buka Blokir** @MissRose_Bot **dan coba lagi!**"
 
@@ -327,8 +327,8 @@ ex_1: "`Balas pesan...`"
 gdrive_1: "`Anda telah memberi otorisasi dengan Google Drive`"
 gdrive_2: "Pergi [kesini](https://console.developers.google.com/flows/enableapi?apiid=drive) dan dapatkan `GDRIVE_CLIENT_ID` dan `GDRIVE_CLIENT_SECRET` kamu\n\nKirim GDRIVE_CLIENT_ID dan GDRIVE_CLIENT_SECRET kamu seperti ini.\n`GDRIVE_CLIENT_ID GDRIVE_CLIENT_SECRET` dipisahkan dengan spasi."
 gdrive_3: "`Client Id salah anjim`"
-gdrive_4: "`Terjadi kesalahan! Kirim `/auth` lagi.\nJika masih sama, harap hubungi `@TheUltroid"
-gdrive_5: "`Berhasil!\nAnda siap untuk menggunakan Google Drive dengan Ultroid Userbot.`"
+gdrive_4: "`Terjadi kesalahan! Kirim `/auth` lagi.\nJika masih sama, harap hubungi `@ElenLiL"
+gdrive_5: "`Berhasil!\nAnda siap untuk menggunakan Google Drive dengan ElenLiL Userbot.`"
 gdrive_6: "`Pergi ke `{}` dan kirim ``/auth.`"
 gdrive_7: "**File Berhasil Diupload kedalam G-Drive :**\n\n[{}]({})"
 
@@ -399,7 +399,7 @@ unspl_1: "Tidak ada hasil yang ditemukan!"
 # updater
 upd_1: "`Memeriksa pembaruan, harap tunggu....`"
 upd_2: "`Oops.. Updater tidak dapat melanjutkan karena beberapa masalah.`\n\n**LOGTRACE:**\n"
-upd_3: "**Tersedia PEMBARUAN Ultroid untuk Branch [[{}]]({}/tree/{}):\n\nPERUBAHAN:**\n\n{}"
+upd_3: "**Tersedia PEMBARUAN ElenLiL untuk Branch [[{}]]({}/tree/{}):\n\nPERUBAHAN:**\n\n{}"
 upd_4: "`Perubahan log terlalu besar, lihat file untuk melihatnya.`"
 upd_5: "Klik tombol di bawah ini untuk memperbarui."
 upd_6: "\n**BOT Anda sudah paling-terbaru dengan [[{}]]({}/tree/{})**\n"
