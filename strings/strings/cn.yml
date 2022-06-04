@@ -2,8 +2,8 @@ name: Chinese
 natively: 简体中文
 
 authors:
-  - stevenliuit
-  - junbaor
+  - ElenLiL
+  - YashA
 
 # commons
 com_1: "`处理中...`"
@@ -20,13 +20,13 @@ autopic_2: "找不到的结果 `{}`"
 autopic_3: "有收藏吗 `{}` 与您的搜索相关 !\n开始自选 !"
 
 # inline
-inline_1: "[Ultroid 帮助](t.me/ultroidsupport)\n\n
+inline_1: "[ElenLiL 帮助](t.me/ElenLiL)\n\n
 **帮助菜单 {}.\n\n
 插件 ~ {}**"
-inline_2: "[Ultroid 帮助](t.me/ultroidsupport)\n\n
+inline_2: "[ElenLiL 帮助](t.me/ElenLiL)\n\n
 **帮助菜单 {}.\n\n
 附加组件 ~ {}**"
-inline_3: "[Ultroid 帮助](t.me/ultroidsupport)\n\n
+inline_3: "[ElenLiL 帮助](t.me/ElenLiL)\n\n
 **帮助菜单 {}.\n\n
 附加组件 ~ {}\n\n
 去添加 `附加组件` var为true的值**"
@@ -57,7 +57,7 @@ afk_5: "`去 AFK.`\n\n
 afk_6: "我要去 AFK."
 
 # bot
-alive_1: "**Ultroid 用户机器人...**\n\n
+alive_1: "**ElenLiL 用户机器人...**\n\n
 **{}**\n\n
 ┏━━━━━━━━━━━━━━━━━━━━━\n
 ┣ **所有者** - `{}`\n
@@ -68,7 +68,7 @@ alive_1: "**Ultroid 用户机器人...**\n\n
 ┣ **Telethon** - `{}`\n
 ┣ **分支** - `{}`\n
 ┗━━━━━━━━━━━━━━━━━━━━━"
-log: "**Heroku** Ultroid 日志.\n粘贴 [here]({}) too!"
+log: "**Heroku** ElenLiL 日志.\n粘贴 [here]({}) too!"
 ping: "**Pong !!** `{}毫秒`\n**Uptime** - `{}`"
 usage: "**⚙️ Dyno 用法 ⚙️**:\n\n
  -> `Dyno 用法 for`  **{}**:\n
@@ -101,7 +101,7 @@ chats_2: "`无法删除此聊天`"
 chats_3: "`我不是管理员`"
 chats_4: "#已删除\n已删除 {}"
 chats_5: "你的 [{}]({}) 组已经成为了 Boss!"
-chats_6: "加入 @TeamUltroid"
+chats_6: "加入 @ElenLiL"
 
 # converter
 cvt_1: "回复任一媒体或文件."
@@ -147,18 +147,18 @@ sf_14: "SuperFBan 已完成.\n总计 Feds - {}.\n不包括 - {}.\n 受影响的 
 sf_15: "启动 Mass-UnFedBan..."
 sf_16: "SuperUnFBan 已完成.\n总计 Feds - {}.\n不包括 - {}.\n 受影响的 {} feds.\n#TB"
 sf_17: "`给我一个ID, 或者回复某人的信息查看他/她的 fedstat.`"
-sf_18: "列表 feds {} 已被禁止.\n\n使用Ultroid收集."
+sf_18: "列表 feds {} 已被禁止.\n\n使用ElenLiL收集."
 sf_19: "**错误**\n `Unblock` @MissRose_Bot ` 再试一次!"
 sf_20: "`提取信息中...`"
-sf_21: "\n\n由Ultroid提取的FedInfo"
+sf_21: "\n\n由ElenLiL提取的FedInfo"
 
 # gdrive
 gdrive_1: "`你已经授权过 Google Drive`"
 gdrive_2: "去 [这里](https://console.developers.google.com/flows/enableapi?apiid=drive) 获取你的 `GDRIVE_CLIENT_ID` 和 `GDRIVE_CLIENT_SECRET`\n\n
 发送你的 GDRIVE_CLIENT_ID 和 GDRIVE_CLIENT_SECRET 到这里.\n`GDRIVE_CLIENT_ID GDRIVE_CLIENT_SECRET` 用空格分开."
 gdrive_3: "`错误的 Client Id`"
-gdrive_4: "`发生了一些错误! 再次发送 `/auth`.\n如果发生同样的问题请联系 `@TheUltroid"
-gdrive_5: "`成功!\n你已经在 Ultroid 用户机器人 上设置好了 Google Drive.`"
+gdrive_4: "`发生了一些错误! 再次发送 `/auth`.\n如果发生同样的问题请联系 `@ElenLiL"
+gdrive_5: "`成功!\n你已经在 ElenLiL 用户机器人 上设置好了 Google Drive.`"
 gdrive_6: "`去 `{}` 并发送 ``/auth.`"
 gdrive_7: "**文件成功上传到 G-Drive :**\n\n[{}]({})"
 
