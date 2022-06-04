@@ -1,8 +1,8 @@
 name: Spanish
 natively: Español
 authors:
-  - SunnySEW
-  - NMayorga
+  - ElenLiL
+  - ShayA
 
 # commons
 com_1: "`Procesando...`"
@@ -120,12 +120,12 @@ autopic_4: "AUTOPIC no estaba en uso !!"
 autopic_5: "AUTOPIC detenido!"
 
 # inline
-inline_1: "[Uʟᴛʀᴏɪᴅ Soporte](t.me/ultroidsupport)\n\n **Menú de Toda de {}.\n\n Complementos ~ {}**"
-inline_2: "[Soporte de Ultroid](t.me/ultroidsupport)\n\n**Menú de ayuda de{}.\n\nComplementos ~ {}**"
-inline_3: "[Soporte de Ultroid](t.me/ultroidsupport)\n\n**Menú de ayuda de{}.\n\nComplementos ~ {}\n\nVe y añade `ADDONS` var con valor true**"
+inline_1: "[ElenLiL Soporte](t.me/ElenLiL)\n\n **Menú de Toda de {}.\n\n Complementos ~ {}**"
+inline_2: "[Soporte de ElenLiL](t.me/ElenLiL)\n\n**Menú de ayuda de{}.\n\nComplementos ~ {}**"
+inline_3: "[Soporte de ElenLiL](t.me/ElenLiL)\n\n**Menú de ayuda de{}.\n\nComplementos ~ {}\n\nVe y añade `ADDONS` var con valor true**"
 inline_4: "** Bot de {}\n\nMenú principal\n\nPʟᴜɢɪɴs ~ {}\nComplementos ~ {}\nComandos Totales ~ {}**"
 inline_5: "**El menú se ha cerrado**"
-inline_6: "**Menú de ayuda del chat de voz para {}**\n**Comandos disponibles:** `{}`\n\n@TeamUltroid"
+inline_6: "**Menú de ayuda del chat de voz para {}**\n**Comandos disponibles:** `{}`\n\n@ElenLiL"
 inline_7: "Haz .help {} para obtener la lista de comandos."
 inline_8: "Haga clic en el botón de abajo para actualizar!"
 inline_9: "Ya estás en la última versión"
@@ -155,8 +155,8 @@ bot_2: "Estadisticas"
 bot_3: "Repositorio"
 bot_4: "Suporte"
 bot_5: "• `Reiniciando...`"
-alive_1: "**El Userbot Ultroid...**\n\n **{}**\n\n ┏━━━━━━━━━━━━━━━━━━━━━\n ┣ **Dueño** - `{}`\n ┣ **Versión** - `{}`\n ┣ **Tiempo de actividad** - `{}`\n ┣ **Python** - `{}`\n ┣ **Telethon** - `{}`\n ┣ **Rama** - `{}`\n ┗━━━━━━━━━━━━━━━━━━━━━"
-log: "**Heroku** Registros Ultroid.\nPegado [aquí]({}) tambien!"
+alive_1: "**El Userbot ElenLiL...**\n\n **{}**\n\n ┏━━━━━━━━━━━━━━━━━━━━━\n ┣ **Dueño** - `{}`\n ┣ **Versión** - `{}`\n ┣ **Tiempo de actividad** - `{}`\n ┣ **Python** - `{}`\n ┣ **Telethon** - `{}`\n ┣ **Rama** - `{}`\n ┗━━━━━━━━━━━━━━━━━━━━━"
+log: "**Heroku** Registros ElenLiL.\nPegado [aquí]({}) tambien!"
 ping: "**Pong !!** `{}ms`\n**Tiempo de actividad** - `{}`"
 usage: "**⚙️ Uso de Dyno ⚙️**:\n\n -> `Uso de dyno para`  **{}**:\n •  `{}`**h**  `{}`**m** **|**  [`{}`**%**]\n\n -> `Cuota de horas dyno restante en este mes`:\n •  `{}`**h**  `{}`**m** **|**  [`{}`**%**]\n\n **Espacio rotal del disco: {}\n\n** **Usado: {}  Libre: {}\n\n** **📊Uso de datos📊\n\nDescarga: {}\nBajada: {}\n\n** **CPU: {}%\nRAM: {}%\nDISCO: {}%**"
 usage_simple: "**Espacio total en disco**: `{}`\n**Usado**: `{}`\n**Libre**: `{}`\n\n**📊 Uso de datos 📊**\n**Subida**: `{}`\n**Bajada**: `{}`\n\n**CPU**: `{}%`\n**RAM**: `{}%`\n**DISK**: `{}%`"
@@ -179,7 +179,7 @@ bd_5: "`¡Agregado a la base de datos!`"
 bd_6: "`¡El canal ya está en la base de datos!`"
 
 # calculator
-calc_1: "• Calculadora en línea Ultroid •"
+calc_1: "• Calculadora en línea ElenLiL •"
 calc_2: "Abrir calculadora de nuevo"
 
 # channel hacks
@@ -288,10 +288,10 @@ sf_14: "SuperUnFBan Completado.\nTotal federales - {}.\nExcluido: {}.\n Federale
 sf_15: "Empezando un Mass-UnFedBan..."
 sf_16: "SuperUnFBan completado.\nTotal federales - {}.\nExcluido: {}.\n Federales {} afectados.\n#TB"
 sf_17: "`Dame el id de alguien, o responde a su mensaje para chequear su fedstat.`"
-sf_18: "La lista de federales {} ha sido prohibida.\n\nRecopilado con Ultroid."
+sf_18: "La lista de federales {} ha sido prohibida.\n\nRecopilado con ElenLil."
 sf_19: "**Error**\n `Desbloquea a` @MissRose_Bot` y vuelve a intentarlo!"
 sf_20: "`Extrayendo información...`"
-sf_21: "\n\nFedInfo Extraido por Ultroid"
+sf_21: "\n\nFedInfo Extraido por ElenLiL"
 sf_22: "Ningún usuario fue designado."
 sf_23: "**Error**\n `Debloquear` @MissRose_Bot `y volver a intentar!"
 
@@ -323,8 +323,8 @@ ex_1: "`Responder al mensaje..`"
 gdrive_1: "`Ya ha autorizado con Google Drive`"
 gdrive_2: "Vaya [here] (https://console.developers.google.com/flows/enableapi?apiid=drive) y obtenga su `GDRIVE_CLIENT_ID` y` GDRIVE_CLIENT_SECRET`\n\n Envíe su GDRIVE_CLIENT_ID y GDRIVE_CLIENT_SECRET como este.\n`GDRIVE_CLIENT_ID GDRIVE_CLIENT_SECRET` separados por espacio."
 gdrive_3: "`Id de cliente incorrecto`"
-gdrive_4: "`¡Algo salió mal! Vuelva a enviar `/auth`otra vez.\nSi sucede lo mismo, contacte con `@TheUltroid"
-gdrive_5: "`¡Éxito!\nYa está todo listo para usar Google Drive con Ultroid Userbot.`"
+gdrive_4: "`¡Algo salió mal! Vuelva a enviar `/auth`otra vez.\nSi sucede lo mismo, contacte con `@ElenLiL"
+gdrive_5: "`¡Éxito!\nYa está todo listo para usar Google Drive con ElenLiL Userbot.`"
 gdrive_6: "`Vaya a `{} `y envíe ``/auth.`"
 gdrive_7: "**Archivo cargado con éxito en G-Drive:**\n\n[{}]({})"
 
