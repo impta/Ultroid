@@ -8,6 +8,7 @@ services:
       SESSION: $SESSION
       LOG_CHANNEL: $LOG_CHANNEL
       BOT_TOKEN: $BOT_TOKEN
+      0CR_API: $0CR_API #ocr.space
       API_ID: $API_ID  # defaults to None
       API_HASH: $API_HASH  # defaults to None
       MONGO_URI: $MONGO_URI  # defaults to None
