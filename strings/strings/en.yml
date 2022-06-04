@@ -2,12 +2,12 @@ name: English
 natively: English
 
 authors:
-  - karboncopy
-  - xditya
-  - rojserbest
-  - sppidy
-  - ProgrammingError
-  - aviskumar
+  - ElenLiL
+  - YashA
+  - ShayA
+  - ErA
+  - ErmA
+  - Zax
 
 # commons
 com_1: "`Processing...`"
@@ -125,12 +125,12 @@ autopic_4: "AUTOPIC was not in use !!"
 autopic_5: "AUTOPIC Stopped!"
 
 # inline
-inline_1: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nPʟᴜɢɪɴs ~ {}**"
-inline_2: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}**"
-inline_3: "[Uʟᴛʀᴏɪᴅ Sᴜᴘᴘᴏʀᴛ](t.me/ultroidsupport)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}\n\nDᴏ **`.setdb ADDONS True`** ᴀɴᴅ ʀᴇsᴛᴀʀᴛ ᴛᴏ ɢᴇᴛ ᴀᴅᴅᴏɴs.**"
+inline_1: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nPʟᴜɢɪɴs ~ {}**"
+inline_2: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}**"
+inline_3: "[ElenLiL Sᴜᴘᴘᴏʀᴛ](t.me/ElenLiL)\n\n**Hᴇʟᴘ Mᴇɴᴜ Oғ {}.\n\nAᴅᴅᴏɴs ~ {}\n\nDᴏ **`.setdb ADDONS True`** ᴀɴᴅ ʀᴇsᴛᴀʀᴛ ᴛᴏ ɢᴇᴛ ᴀᴅᴅᴏɴs.**"
 inline_4: "** Bᴏᴛ Oғ {}\n\nMᴀɪɴ Mᴇɴᴜ\n\nPʟᴜɢɪɴs ~ {}\nAᴅᴅᴏɴs ~ {}\nTᴏᴛᴀʟ Cᴏᴍᴍᴀɴᴅs ~ {}**"
 inline_5: "**Mᴇɴᴜ Hᴀs Bᴇᴇɴ Cʟᴏsᴇᴅ**"
-inline_6: "**Voice Chat Help Menu for {}**\n**Available Commands:** `{}`\n\n@TeamUltroid"
+inline_6: "**Voice Chat Help Menu for {}**\n**Available Commands:** `{}`\n\n@ElenLiL"
 inline_7: "Do .help {} to get the list of commands."
 inline_8: "Click the below button to update!"
 inline_9: "You Are Already On Latest Version"
@@ -160,8 +160,8 @@ bot_2: "Stats"
 bot_3: "Repo"
 bot_4: "Support"
 bot_5: "• `Restarting...`"
-alive_1: "**The Ultroid Userbot...**\n\n**{}**\n\n✵ **Owner** - `{}`\n✵ **Ultroid** - `{}`\n✵ **Py-Ultroid** - `{}`\n✵ **UpTime** - `{}`\n✵ **Python** - `{}`\n✵ **Telethon** - `{}`\n✵ **Branch** - `{}`"
-log: "**Heroku** Ultroid Logs.\nPasted [here]({}) too!"
+alive_1: "**The ElenLiL Userbot...**\n\n**{}**\n\n✵ **Owner** - `{}`\n✵ **ElenLiL** - `{}`\n✵ **Py-Ultroid** - `{}`\n✵ **UpTime** - `{}`\n✵ **Python** - `{}`\n✵ **Telethon** - `{}`\n✵ **Branch** - `{}`"
+log: "**Heroku** ElenLiL Logs.\nPasted [here]({}) too!"
 ping: "**Pong !!** `{}ms`\n**Uptime** - `{}`"
 usage: "**⚙️ Dyno Usage ⚙️**:\n\n-> **Dyno usage for** `{}`:\n  •  **{}h**  **{}m |** `[{}%]`\n-> **Dyno hours quota remaining this month**:\n  •  **{}h**  **{}m |** `[{}%]`\n\n**Total Disk Space**: `{}`\n**Used**: `{}`\n**Free**: `{}`\n\n**📊 Data Usage 📊**\n**Upload**: `{}`\n**Down**: `{}`\n\n**CPU**: `{}%`\n**RAM**: `{}%`\n**DISK**: `{}%`"
 usage_simple: "**Total Disk Space**: `{}`\n**Used**: `{}`\n**Free**: `{}`\n\n**📊 Data Usage 📊**\n**Upload**: `{}`\n**Down**: `{}`\n\n**CPU**: `{}%`\n**RAM**: `{}%`\n**DISK**: `{}%`"
@@ -187,7 +187,7 @@ bd_8: "`Removing...`"
 bd_9: "Channel is already removed from database. "
 
 # calculator
-calc_1: "• Ultroid Inline Calculator •"
+calc_1: "• ElenLiL Inline Calculator •"
 calc_2: "Open Calculator Again"
 
 # channel hacks
@@ -215,7 +215,7 @@ chats_1: "`Cant delete this chat.`"
 chats_2: "`I m not an admin`"
 chats_3: "#Deleted\nDeleted {}"
 chats_4: "Your [{}]({}) Group Made Boss!"
-chats_5: "Join @TeamUltroid"
+chats_5: "Join @ElenLiLBoT"
 chats_6: "Your {} Group/Channel Has been made Boss!"
 
 # clean action
@@ -296,10 +296,10 @@ sf_14: "SuperFBan Completed.\nTotal Feds - {}.\nExcluded - {}.\n Affected {} fed
 sf_15: "Starting a Mass-UnFedBan..."
 sf_16: "SuperUnFBan Completed.\nTotal Feds - {}.\nExcluded - {}.\n Affected {} feds.\n#TB"
 sf_17: "`Give me someones id, or reply to somones message to check his/her fedstat.`"
-sf_18: "List of feds {} has been banned in.\n\nCollected using Ultroid."
+sf_18: "List of feds {} has been banned in.\n\nCollected using ElenLiL."
 sf_19: "**Error**\n `Unblock` @MissRose_Bot `and try again!"
 sf_20: "`Extracting information...`"
-sf_21: "\n\nFedInfo Extracted by Ultroid"
+sf_21: "\n\nFedInfo Extracted by ElenLiL"
 sf_22: "No user was designated."
 sf_23: "**Error**\n `Unblock` @MissRose_Bot `and try again!"
 
@@ -331,8 +331,8 @@ ex_1: "`Reply to message..`"
 gdrive_1: "`You have already authorised with Google Drive`"
 gdrive_2: "Go [here](https://console.developers.google.com/flows/enableapi?apiid=drive) and get your `GDRIVE_CLIENT_ID` and `GDRIVE_CLIENT_SECRET`\n\nSend your GDRIVE_CLIENT_ID and GDRIVE_CLIENT_SECRET as this.\n`GDRIVE_CLIENT_ID GDRIVE_CLIENT_SECRET` separated by space."
 gdrive_3: "`Wrong Client Id`"
-gdrive_4: "`Something went wrong! Authorise again.\nIf the same happens, contact `@TheUltroid"
-gdrive_5: "`Success!\nYou are all set to use Google Drive with Ultroid Userbot.`"
+gdrive_4: "`Something went wrong! Authorise again.\nIf the same happens, contact `@ElenLiL"
+gdrive_5: "`Success!\nYou are all set to use Google Drive with ElenLiL Userbot.`"
 gdrive_6: "`Go `[here](t.me/{}?start=set)` and setup G-Drive`"
 gdrive_7: "Successfully uploaded [{}]({}) on G-Drive"
 
