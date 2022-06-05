@@ -5,37 +5,37 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}ftyping <time/in secs>`
-    `Show Fake Typing in current chat.`
+    `تایپ فیک.`
 
 • `{i}faudio <time/in secs>`
-    `Show Fake Recording Action in current chat.`
+    `وویس فیک.`
 
 • `{i}fvideo <time/in secs>`
-    `Show Fake video action in current chat.`
+    `ویدیوی فیک.`
 
 • `{i}fgame <time/in secs>`
-    `Show Fake Game Playing Action in current chat.`
+    `بازی کردنه فیک.`
 
 • `{i}fsticker <time/in secs>`
-    `Show Fake sticker choosing Action in current chat.`
+    `انتخابه استیکره فیک`
 
 • `{i}flocation <time/in secs>`
-    `Show Fake location Action in current chat.`
+    `لوکیشن فرستادنه فیک`
 
 • `{i}fcontact <time/in secs>`
-    `Show Fake contact choosing Action in current chat.`
+    `انتخابه مخاطبه فیک`
 
 • `{i}fround <time/in secs>`
-    `Show Fake video message action in current chat.`
+    `ویدیو مسیج فیک`
 
 • `{i}fphoto <time/in secs>`
-    `Show Fake sending photo in current chat.`
+    `ارسال عکس فیک`
 
 • `{i}fdocument <time/in secs>`
-    `Show Fake sending document in current chat.`
+    `ارسال اسناد فیک`
 """
 import math
 import time
