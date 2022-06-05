@@ -5,24 +5,24 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 • `{i}gdul <reply/file name>`
-    Reply to file to upload on Google Drive.
-    Add file name to upload on Google Drive.
+    روی فایلی ک میخای اپلود شه توی گوگل درایو، ریپلای کن.
+    اسم فایل رو اضافه کن برای اپلود ب گوگل درایو.
 
 • `{i}gdown <file id/link> | <filename>`
-    Download from Gdrive link or file id.
+    دانلود از گوگل درایو با لینک یا عای دی فایل.
 
 • `{i}gdsearch <file name>`
-    Search file name on Google Drive and get link.
+    جستجوی اسم فایل در گوگل درایو و دریافت لینک.
 
 • `{i}gdlist`
-    List all GDrive files.
+    لیست تمام فایل های گوگل درایو.
 
 • `{i}gdfolder`
-    Link to your Google Drive Folder.
-    If added then all files will be uploaded in this folder.
+    لینک پوشه ی گوگل درایوت.
+    اگه اضافش کنی، ممبعد هر فایلی اپلود کنی تو این پوشه میره.
 """
 
 import os
@@ -43,7 +43,7 @@ async def gdown(event):
     GDrive = GDriveManager()
     match = event.pattern_match.group(1).strip()
     if not match:
-        return await eod(event, "`Give file id or Gdrive link to download from!`")
+        return await eod(event, "`برای دانلود، یا لینکه فایله گوگل درایو بده یا عای دی فایلو!`")
     filename = match.split(" | ")[1].strip() if " | " in match else None
     eve = await event.eor(get_string("com_1"))
     _start = time.time()
@@ -51,7 +51,7 @@ async def gdown(event):
     if not status:
         return await eve.edit(response)
     await eve.edit(
-        f"`Downloaded ``{response}`` in {time_formatter((time.time() - _start)*1000)}`"
+        f"`دانلود شد ``{response}`` در {time_formatter((time.time() - _start)*1000)}`"
     )
 
 
@@ -67,11 +67,11 @@ async def files(event):
     files = GDrive._list_files
     msg = ""
     if files:
-        msg += f"{len(files.keys())} files found in gdrive.\n\n"
+        msg += f"{len(files.keys())} فایل ها در گوگل درایو پیدا شدن.\n\n"
         for _ in files:
             msg += f"> [{files[_]}]({_})\n"
     else:
-        msg += "Nothing in Gdrive"
+        msg += "چیزی تو گوگل درایو نیس"
     if len(msg) < 4096:
         await eve.edit(msg, link_preview=False)
     else:
@@ -127,14 +127,14 @@ async def _(event):
             except Exception as e:
                 return await eor(mone, str(e), time=10)
         await mone.edit(
-            f"`Downloaded to ``{filename}`.`",
+            f"`دانلود شده ``{filename}`.`",
         )
     else:
         filename = input_file.strip()
         if not os.path.exists(filename):
             return await eod(
                 mone,
-                "File Not found in local server. Give me a file path :((",
+                "فایل توی سرور پیدا نشد، مسیرشو بده بهم :((",
                 time=5,
             )
     folder_id = None
@@ -142,7 +142,7 @@ async def _(event):
         files = os.listdir(filename)
         if not files:
             return await eod(
-                mone, "`Requested directory is empty. Can't create empty directory.`"
+                mone, "`دایرکتوریه درخاست داده شده خالیه، من نمیتونم دایرکتوریه خالی بسازم.`"
             )
         folder_id = GDrive.create_directory(filename)
         c = 0
@@ -154,10 +154,10 @@ async def _(event):
                     c += 1
                 except Exception as e:
                     return await mone.edit(
-                        f"Exception occurred while uploading to gDrive {e}"
+                        f"هنگام اپلود در گوگل درایو استثناعاتی رخ داد {e}"
                     )
         return await mone.edit(
-            f"`Uploaded `[{filename}](https://drive.google.com/folderview?id={folder_id})` with {c} files.`"
+            f"`اپلود شد `[{filename}](https://drive.google.com/folderview?id={folder_id})` با {c} فایل ها.`"
         )
     try:
         g_drive_link = await GDrive._upload_file(
@@ -168,7 +168,7 @@ async def _(event):
             get_string("gdrive_7").format(filename.split("/")[-1], g_drive_link)
         )
     except Exception as e:
-        await mone.edit(f"Exception occurred while uploading to gDrive {e}")
+        await mone.edit(f"استثناعاتی حین اپلود در گوگل درایو، رخ داد {e}")
 
 
 @ultroid_cmd(
@@ -181,18 +181,18 @@ async def _(event):
         return await event.eor(get_string("gdrive_6").format(asst.me.username))
     input_str = event.pattern_match.group(1).strip()
     if not input_str:
-        return await event.eor("`Give filename to search on GDrive...`")
-    eve = await event.eor(f"`Searching for {input_str} in G-Drive...`")
+        return await event.eor("`اسم فایل رو برای جستجو تو گوگل درایو بده...`")
+    eve = await event.eor(f"`جستجو برای {input_str} در گوگل درایو...`")
     files = GDrive.search(input_str)
     msg = ""
     if files:
         msg += (
-            f"{len(files.keys())} files with {input_str} in title found in GDrive.\n\n"
+            f"{len(files.keys())} فایل ها با {input_str} با این عنوان در گوگل درایو پیدا شدن\n\n"
         )
         for _ in files:
             msg += f"> [{files[_]}]({_})\n"
     else:
-        msg += f"`No files with title {input_str}`"
+        msg += f"`هیچ فایلی با این عنوان {input_str}`"
     if len(msg) < 4096:
         await eve.eor(msg, link_preview=False)
     else:
@@ -225,7 +225,7 @@ async def _(event):
         return await event.eor(get_string("gdrive_6").format(asst.me.username))
     if GDrive.folder_id:
         await event.eor(
-            "`Your G-Drive Folder link : `\n"
+            "`لینک پوشهٔ گوگل درایو شما : `\n"
             + GDrive._create_folder_link(GDrive.folder_id)
         )
     else:
