@@ -5,19 +5,19 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}addnote <word><reply to a message>`
-    add note in the used chat with replied message and choosen word.
+    اضافه کردنه یادداشت ها در گپه فعلی با ریپلای یا انتخابه کلمه.
 
 • `{i}remnote <word>`
-    Remove the note from used chat.
+    حذف یادداش از گپه فعلی.
 
 • `{i}listnote`
-    list all notes.
+    لیست تمام یادداشت ها.
 
-• Use :
-   set notes in group so all can use it.
+• استفاده :
+   همه میتونن از یادداشت ها استفاده کنن
    type `#(Keyword of note)` to get it
 """
 import os
@@ -82,14 +82,14 @@ async def rn(e):
     if wrd.startswith("#"):
         wrd = wrd.replace("#", "")
     rem_note(int(chat), wrd)
-    await e.eor(f"Done Note: `#{wrd}` Removed.")
+    await e.eor(f"حله ، یادداشت: `#{wrd}` حذف شد.")
 
 
 @ultroid_cmd(pattern="listnote$", admins_only=True)
 async def lsnote(e):
     x = list_note(e.chat_id)
     if x:
-        sd = "Notes Found In This Chats Are\n\n"
+        sd = "یادداشت های پیدا شده تو این گپ عبارتند از\n\n"
         return await e.eor(sd + x)
     await e.eor(get_string("notes_5"))
 
