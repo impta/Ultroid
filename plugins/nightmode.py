@@ -5,27 +5,27 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-At Night it will turn off everyone permission to send message in  an all groups which you added via `{i}addnight`
-And Turn On auto at morning
+در شب، اجازه ارسال پیام را در همه گروه‌هایی که از طریق «{i}addnight» اضافه کرده‌اید، غیرفعال می‌کند.
+ و صبح خودکار را روشن کنید
 
 • `{i}addnm`
    Add NightMode
-   To Add Group To Auto Night Mode.
+   برای حالته شبخ اتوماتیک.
 
 • `{i}remnm`
    Remove NightMode
-   To remove Group From Auto Night Mode
+   برای حذف حالت شبه اتوماتیک
 
 • `{i}listnm`
    List NightMode
-   To Get All List of Groups where NightMode Active.
+   لیست تمام گروه هایی ک حالته شب در ان ها فعاله.
 
 • `{i}nmtime <close hour> <close min> <open hour> <open min>`
    NightMode Time
-   By Default Its close 00:00 , open 07:00
-   Use 24hr format
+   تو حالته پیشفرض بسته میشه تو ساعته 00:00 , باز میشه تو ساعته 07:00
+   از قالب ۲۴ ساعته استفاده کنید
    Ex- `nmtime 01 00 06 30`
 """
 
@@ -65,7 +65,7 @@ async def add_grp(e):
     if pat:
         try:
             add_night((await ultroid_bot.get_entity(pat)).id)
-            return await e.eor(f"Done, Added {pat} To Night Mode.")
+            return await e.eor(f"حله, اضافه شد {pat} ب حالته شب.")
         except BaseException:
             return await e.eor(get_string("nightm_5"), time=5)
     add_night(e.chat_id)
@@ -78,7 +78,7 @@ async def rem_grp(e):
     if pat:
         try:
             rem_night((await ultroid_bot.get_entity(pat)).id)
-            return await e.eor(f"Done, Removed {pat} To Night Mode.")
+            return await e.eor(f"حله, حذف شد {pat} از حالته شب.")
         except BaseException:
             return await e.eor(get_string("nightm_5"), time=5)
     rem_night(e.chat_id)
@@ -88,8 +88,8 @@ async def rem_grp(e):
 @ultroid_cmd(pattern="listnm$")
 async def rem_grp(e):
     chats = night_grps()
-    name = "NightMode Groups Are-:\n\n"
-    for x in chats:
+    name = "جالته شبه گروه هستش-:\n\n"
+    برای x در گپ ها:
         try:
             ok = await ultroid_bot.get_entity(x)
             name += "@" + ok.username if ok.username else ok.title
@@ -117,7 +117,7 @@ async def open_grp():
                     ),
                 )
             )
-            await ultroid_bot.send_message(chat, "**NightMode Off**\n\nGroup Opened 🥳.")
+            await ultroid_bot.send_message(chat, "**حالته شب خاموشه**\n\nگروه باز شد 🥳.")
         except Exception as er:
             LOGS.info(er)
 
@@ -139,7 +139,7 @@ async def close_grp():
                 )
             )
             await ultroid_bot.send_message(
-                chat, f"**NightMode : Group Closed**\n\nGroup Will Open At `{h2}:{m2}`"
+                chat, f"**حالته شبه : گروه بسته شد**\n\nGroup Will Open At `{h2}:{m2}`"
             )
         except Exception as er:
             LOGS.info(er)
