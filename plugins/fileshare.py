@@ -5,18 +5,18 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}store <reply_to_message>`
-   Store the replied message/media and generate a shareable link to that file, to be accessed via your assistant bot!
+   پیام/رسانه ریپلای شده را ذخیره کنید و یک پیوند قابل اشتراک به آن فایل ایجاد کنید تا از طریق ربات دستیار به آن دسترسی داشته باشید.!
 
 • `{i}delstored <link of stored file>`
-    Delete stored file.
+    حذف فایل ذخیره شده.
 
 • `{i}liststored`
-   Get all stored messages.
+   دریافت تمام ذخیره شده ها.
 
-• Go Inline with your assistant bot with `filestore` to see stored files in inline.
+• با ربات دستیار خود با «filestore» به اینلاین بروید تا فایل‌های ذخیره‌شده را به‌صورت اینلاین ببینید.
 """
 
 import os
@@ -45,17 +45,17 @@ async def filestoreplg(event):
 async def _(event):
     match = event.pattern_match.group(1)
     if not match:
-        return await event.eor("`Give stored film's link to delete.`", time=5)
+        return await event.eor("`لینک فیلم ذخیره شده را برای حذف بدهید.`", time=5)
     match = match.split("?start=")
     botusername = match[0].split("/")[-1]
     if botusername != asst.me.username:
         return await event.eor(
-            "`Message/Media of provided link was not stored by this bot.`", time=5
+            "`پیام/رسانه ی لینک ارائه شده توسط این ربات ذخیره نشده است.`", time=5
         )
     msg_id = get_stored_msg(match[1])
     if not msg_id:
         return await event.eor(
-            "`Message/Media of provided link was already deleted.`", time=5
+            "`پیام/رسانه ی لینکه ارائه شده قبلاً حذف شده است.`", time=5
         )
     del_stored(match[1])
     await ultroid_bot.delete_messages(udB.get_key("LOG_CHANNEL"), int(msg_id))
@@ -67,7 +67,7 @@ async def liststored(event):
     files = list_all_stored_msgs()
     if not files:
         return await event.eor(get_string("fsh_4"), time=5)
-    msg = "**Stored files:**\n"
+    msg = "**فایل های ذخیره شده:**\n"
     for c, i in enumerate(files, start=1):
         msg += f"`{c}`. https://t.me/{asst.me.username}?start={i}\n"
     if len(msg) > 4095:
@@ -99,7 +99,7 @@ async def file_short(event):
                     await event.builder.article(title=message.text, text=message.text)
                 )
     if not res:
-        title = "You have no stored file :("
-        text = title + f"\n\nRead `{HNDLR}help fileshare` to know how to store."
+        title = "هیچ فایل ذخیره شده ای نداری :("
+        text = title + f"\n\nبخان `{HNDLR}راهنمای ذخیره ی فایل رو` برای فهمیدنه روشه ذخیره کردنه فایل ها."
         return await event.answer([await event.builder.article(title=title, text=text)])
-    await event.answer(res, switch_pm="• File Store •", switch_pm_param="start")
+    await event.answer(res, switch_pm="• ذخیرهٔ فایل •", switch_pm_param="start")
