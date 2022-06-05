@@ -6,23 +6,23 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 • `{i}autokick <on/off>`
-    on - To enable.
-    off - To disable.
-    Automatically kick new joined users from the group.
+    on - برای فعال کردن.
+    off - برای غیرفعال کردن.
+    کاربران جدیدی که به گروه ملحق میشوند به‌طور خودکار حذف شوند.
 
 • `{i}cban`
-    Enable/Disable autobanning send as channel in used chat.
+    فعال یا غیرفعال کردن بن اتوماتیک، ارسال بعنوان چنل در گپ.
 
-• `{i}addwl <Username>`
-   Add Channel to channelban whitelist.
+• `{i}addwl <یوزرنیم>`
+   چنل را به لیست سفید چنل بن اضافه کنید.
 
-• `{i}remwl <Username>`
-   Remove Channel from channelban whitelist.
+• `{i}remwl <یوزرنیم>`
+   چنل را از لیست سفید چنل بن حذف کنید.
 
-• `{i}listwl` : List all whitelist channels.
+• `{i}listwl` : لیست تمام چنل های لیست سفید.
 """
 
 
@@ -76,33 +76,33 @@ async def _(event):
     match = event.pattern_match.group(1)
     if match == "on":
         if dnd_db.chat_in_dnd(event.chat_id):
-            return await event.eor("`Chat already in do not disturb mode.`", time=3)
+            return await event.eor("`گپ از قبل در حالت مزاحم نشوید هستش.`", time=3)
         dnd_db.add_dnd(event.chat_id)
         event.client.add_handler(
             dnd_func, events.ChatAction(func=lambda x: x.user_joined)
         )
-        await event.eor("`Do not disturb mode activated for this chat.`", time=3)
+        await event.eor("`حالت مزاحم نشوید برای این گپ فعال شد.`", time=3)
     elif match == "off":
         if not dnd_db.chat_in_dnd(event.chat_id):
-            return await event.eor("`Chat is not in do not disturb mode.`", time=3)
+            return await event.eor("`چت رفت ب حالت مزاحم نشوید.`", time=3)
         dnd_db.del_dnd(event.chat_id)
-        await event.eor("`Do not disturb mode deactivated for this chat.`", time=3)
+        await event.eor("`حالت مزاحم نشوید برای این گپ غیرفعال شد.`", time=3)
 
 
 @ultroid_cmd(pattern="cban$", admins_only=True)
 async def ban_cha(ult):
     if autoban_db.is_autoban_enabled(ult.chat_id):
         autoban_db.del_channel(ult.chat_id)
-        return await ult.eor("`Disabled Auto ChannelBan...`")
+        return await ult.eor("`غیرفعال کردنه چنل بنه اتوماتیک...`")
     if not (
         ult.chat.creator
         or (ult.chat.admin_rights.delete_messages or ult.chat.admin_rights.ban_users)
     ):
         return await ult.eor(
-            "You are missing required admin rights!\nYou can't use ChannelBan without Ban/del privilege..`"
+            "شما حقوق لازم برای ادمینی را ندارید!\nشما نمی توانید از چنل بن بدون تیکه Ban/del استفاده کنید..`"
         )
     autoban_db.add_channel(ult.chat_id)
-    await ult.eor("`Enabled Auto ChannelBan Successfully!`")
+    await ult.eor("`چنل بن با موفقیت فعال شد!`")
     ult.client.add_handler(
         channel_del,
         events.NewMessage(
@@ -118,8 +118,8 @@ async def do_magic(event):
     if match == "list":
         cha = autoban_db.get_whitelisted_channels(event.chat_id)
         if not cha:
-            return await msg.edit("`No Whitelisted channels for current chat.`")
-        Msg = "**Whitelist Channels in Current Chat**\n\n"
+            return await msg.edit("`هیچ چنلی در لیست سفید برای گپ فعلی وجود ندارد.`")
+        Msg = "**لیست سفید چنل ها در چت فعلی**\n\n"
         for ch in cha:
             Msg += f"(`{ch}`) "
             try:
@@ -130,19 +130,19 @@ async def do_magic(event):
     usea = event.pattern_match.group(2).strip()
     if not usea:
         return await Msg.edit(
-            "`Please provide a channel username/id to add/remove to/from whitelist..`"
+            "`لطفاً یک نام کاربری/شناسه چنل برای افزودن/حذف به/از لیست سفید ارائه دهید..`"
         )
     try:
         u_id = await event.client.parse_id(usea)
         cha = await event.client.get_entity(u_id)
     except Exception as er:
         LOGS.exception(er)
-        return await msg.edit(f"Error Broke Out!\n`{er}`")
+        return await msg.edit(f"خطا رخ داد!\n`{er}`")
     if match == "add":
         autoban_db.add_to_whitelist(event.chat_id, u_id)
-        return await msg.edit(f"`Added` {inline_mention(cha)} `to WhiteList..`")
+        return await msg.edit(f"`اضافه شد` {inline_mention(cha)} `ب لیست سفید..`")
     autoban_db.del_from_whitelist(event.chat_id, u_id)
-    await msg.edit(f"`Removed` {inline_mention(cha)} `from WhiteList.`")
+    await msg.edit(f"`حذف شد` {inline_mention(cha)} `از لیست سفید.`")
 
 
 if dnd_db.get_dnd_chats():
