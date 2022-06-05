@@ -5,14 +5,14 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}mediainfo <reply to media>`
-   To get info about it.
+   برای گرفتن جزئیاتش.
 
 • `{i}rotate <degree/angle> <reply to media>`
-   Rotate any video/photo/media..
-   Note : for video it should be angle of 90's
+   چرخاندنه هر video/photo/media..
+   نکته : برای ویدیو باید یکی از زوایای قائمه باشه 90's
 """
 import os
 import time
@@ -45,7 +45,7 @@ async def mi(e):
     xx = mediainfo(r.media)
     murl = r.media.stringify()
     url = await make_html_telegraph("Mediainfo", "Ultroid", f"<code>{murl}</code>")
-    ee = await e.eor(f"**[{xx}]({url})**\n\n`Loading More...`", link_preview=False)
+    ee = await e.eor(f"**[{xx}]({url})**\n\n`لود...`", link_preview=False)
     taime = time.time()
     if hasattr(r.media, "document"):
         file = r.media.document
@@ -61,7 +61,7 @@ async def mi(e):
             file,
             ee,
             taime,
-            f"`**[{xx}]({url})**\n\n`Loading More...",
+            f"`**[{xx}]({url})**\n\n`لود...",
         )
         naam = dl.name
     else:
@@ -85,14 +85,14 @@ async def mi(e):
 async def rotate_(ult):
     match = ult.pattern_match.group(1).strip()
     if not ult.is_reply:
-        return await ult.eor("`Reply to a media...`")
+        return await ult.eor("`رو ی مدیا ریپ بزن...`")
     if match:
         try:
             match = int(match)
         except ValueError:
             match = None
     if not match:
-        return await ult.eor("`Please provide a valid angle to rotate media..`")
+        return await ult.eor("`لطفن زاویه قائمه بده برای چرخاندنه مدیا..`")
     reply = await ult.get_reply_message()
     msg = await ult.eor(get_string("com_1"))
     photo = reply.game.photo if reply.game else None
@@ -109,7 +109,7 @@ async def rotate_(ult):
             f'ffmpeg -i "{media}" -c copy -metadata:s:v:0 rotate={match} "{file}" -y'
         )
     else:
-        return await msg.edit("`Unsupported Media..\nReply to Photo/Video`")
+        return await msg.edit("`مدیا پشتیبانی نشده..\n روی عکس/فیلم ریپلای بزن`")
     if os.path.exists(file):
         await ult.client.send_file(
             ult.chat_id, file=file, video_note=bool(reply.video_note), reply_to=reply.id
