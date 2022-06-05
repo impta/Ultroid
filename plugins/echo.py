@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 •`{i}addecho <reply to anyone>`
-   Start Auto Echo message of Replied user.
+   شروعه پیامه خودکار، به کاربر ریپلای شده.
 
 •`{i}remecho <reply to anyone>`
-   Turn It off
+   خاموش کردن
 
 •`{i}listecho <reply to anyone>`
-   To Get list.
+   برای دریافت لیست.
 """
 
 from pyUltroid.dB.echo_db import add_echo, check_echo, list_echo, rem_echo
@@ -37,13 +37,13 @@ async def echo(e):
             else:
                 user = int(user)
         except BaseException:
-            return await e.eor("Reply To A user.", time=5)
+            return await e.eor("رو ی نفر ریپلای کن.", time=5)
     if check_echo(e.chat_id, user):
-        return await e.eor("Echo already activated for this user.", time=5)
+        return await e.eor("اکو از قبل برا ایشون فعال بوده.", time=5)
     add_echo(e.chat_id, user)
     ok = await e.client.get_entity(user)
     user = f"[{get_display_name(ok)}](tg://user?id={ok.id})"
-    await e.eor(f"Activated Echo For {user}.")
+    await e.eor(f"اکو فعال شد برای {user}.")
 
 
 @ultroid_cmd(pattern="remecho( (.*)|$)")
@@ -60,13 +60,13 @@ async def rm(e):
             else:
                 user = int(user)
         except BaseException:
-            return await e.eor("Reply To A User.", time=5)
+            return await e.eor("رو ی نفر ریپلای کن.", time=5)
     if check_echo(e.chat_id, user):
         rem_echo(e.chat_id, user)
         ok = await e.client.get_entity(user)
         user = f"[{get_display_name(ok)}](tg://user?id={ok.id})"
-        return await e.eor(f"Deactivated Echo For {user}.")
-    await e.eor("Echo not activated for this user")
+        return await e.eor(f"اکو غیرفعال شد برای {user}.")
+    await e.eor("اکو برای ایشون فعال نیست")
 
 
 @ultroid_bot.on(events.NewMessage(incoming=True))
@@ -83,11 +83,11 @@ async def okk(e):
 async def lstecho(e):
     k = list_echo(e.chat_id)
     if k:
-        user = "**Activated Echo For Users:**\n\n"
+        user = "**اکو فعال شد برای این افراد:**\n\n"
         for x in k:
             ok = await e.client.get_entity(int(x))
             kk = f"[{get_display_name(ok)}](tg://user?id={ok.id})"
             user += "•" + kk + "\n"
         await e.eor(user)
     else:
-        await e.eor("`List is Empty, For echo`", time=5)
+        await e.eor("`لیست اکو خالیه`", time=5)
