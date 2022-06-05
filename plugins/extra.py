@@ -5,19 +5,19 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}del <reply to message>`
-    Delete the replied message.
+    حذفه پیامی ک روی آن ریپلای کردید.
 
 • `{i}edit <new message>`
-    Edit your last message or replied msg.
+    ادیت کردنه اخرین پیامتون، یا پیامی ک روی ان ریپلای کردید.
 
 • `{i}copy <reply to message>`
-    Copy replied message / media.
+    کپی کردنه پیام یا مدیایی ک روی ان ریپلای کردید.
 
 • `{i}reply`
-    Reply the last sent msg to replied user.
+    ریپلای کردنه اخرین پیامتون به شخصی ک روی ان ریپلای کردید.
 """
 import asyncio
 
@@ -36,7 +36,7 @@ async def delete_it(delme):
         await msg_src.delete()
         await delme.delete()
     except Exception as e:
-        await delme.eor(f"Couldn't delete the message.\n\n**ERROR:**\n`{e}`", time=5)
+        await delme.eor(f"نمیشه پیام رو پاک کرد.\n\n**ارور:**\n`{e}`", time=5)
 
 
 @ultroid_cmd(
@@ -84,10 +84,10 @@ async def _(e):
             msg = (await e.client.get_messages(e.chat_id, limit=1, max_id=e.id))[0]
         except IndexError:
             return await e.eor(
-                "`You have previously sent no message to reply again...`", time=5
+                "`اخیرن پیامی نفرستادی ک دوباره ریپلای شه...`", time=5
             )
         except BaseException as er:
-            return await e.eor(f"**ERROR:** `{er}`")
+            return await e.eor(f"**ارور:** `{er}`")
         await asyncio.wait(
             [
                 e.client.delete_messages(chat, [e.id, msg.id]),
