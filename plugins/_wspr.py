@@ -67,26 +67,26 @@ async def _(e):
         logi = await ultroid_bot.get_entity(query)
     except IndexError:
         sur = e.builder.article(
-            title="Give Username",
-            description="You Didn't Type Username or id.",
-            text="You Didn't Type Username or id.",
+            title="ای دی رو وارد کن",
+            description="یوزرنیم یا ای دی ای رو تایپ نکردی",
+            text="ای دی یا یوزرنیمی رو تایپ نکردی",
         )
         return await e.answer([sur])
     except ValueError:
         sur = e.builder.article(
-            title="User Not Found",
-            description="Make sure username or id is correct.",
-            text="Make sure username or id is correct.",
+            title="یارو پیدا نشد",
+            description="چک کن ک یوزرنیم یا ای دی رو درست زدی",
+            text="چک کن ک یوزرنیم یا ای دی رو درست زدی",
         )
         return await e.answer([sur])
     try:
         desc = zzz[2]
     except IndexError:
-        sur = e.builder.article(title="Type ur msg", text="You Didn't Type Your Msg")
+        sur = e.builder.article(title="پیامتو بنویس", text="پیامتو ننوشتی")
         return await e.answer([sur])
     button = [
-        Button.inline("Secret Msg", data=f"dd_{e.id}"),
-        Button.inline("Delete Msg", data=f"del_{e.id}"),
+        Button.inline("پیام مخفی", data=f"dd_{e.id}"),
+        Button.inline("حذف پیام", data=f"del_{e.id}"),
     ]
     us = logi.username or logi.first_name
     sur = e.builder.article(
@@ -102,7 +102,7 @@ async def _(e):
 @in_pattern("msg", owner=True)
 async def _(e):
     zzz = e.text.split(maxsplit=1)
-    desc = "Touch me"
+    desc = "بمال روم"
     try:
         query = zzz[1]
         if query.isdigit():
@@ -112,32 +112,32 @@ async def _(e):
         mention = inline_mention(user)
         x = user.status
         if isinstance(x, types.UserStatusOnline):
-            status = "Online"
+            status = "آنلاین"
         elif isinstance(x, types.UserStatusOffline):
-            status = "Offline"
+            status = "آفلاین"
         elif isinstance(x, types.UserStatusRecently):
-            status = "Last Seen Recently"
+            status = "آخرین بازدید اخیرن"
         elif isinstance(x, types.UserStatusLastMonth):
-            status = "Last seen months ago"
+            status = "آخرین بازدید چن ماه پیش"
         elif isinstance(x, types.UserStatusLastWeek):
-            status = "Last seen weeks ago"
+            status = "آخرین بازدید چن هفته پیش"
         else:
-            status = "Can't Tell"
-        text = f"**Name:**    `{user.first_name}`\n"
-        text += f"**Id:**    `{user.id}`\n"
+            status = "نمیتونم بگم"
+        text = f"**نام:**    `{user.first_name}`\n"
+        text += f"**آی دی:**    `{user.id}`\n"
         if user.username:
-            text += f"**Username:**    `{user.username}`\n"
+            text += f"**یوزرنیم:**    `{user.username}`\n"
             url = f"https://t.me/{user.username}"
         else:
-            text += f"**Mention:**    `{mention}`\n"
+            text += f"**منشن:**    `{mention}`\n"
             url = f"tg://user?id={user.id}"
-        text += f"**Status:**    `{status}`\n"
-        text += f"**About:**    `{logi.full_user.about}`"
+        text += f"**وضعیت:**    `{status}`\n"
+        text += f"**درباره:**    `{logi.full_user.about}`"
         button = [
             Button.url("Private", url=url),
             Button.switch_inline(
-                "Secret msg",
-                query=f"wspr {query} Hello 👋",
+                "پیام مخفی",
+                query=f"wspr {query} سلام 👋",
                 same_peer=True,
             ),
         ]
@@ -177,7 +177,7 @@ async def _(e):
         if e.sender_id in buddhhu[ids]:
             await e.answer(buddhhu[ids][-1], alert=True)
         else:
-            await e.answer("Not For You", alert=True)
+            await e.answer("برا ت نی", alert=True)
     else:
         await e.answer(get_string("wspr_2"), alert=True)
 
