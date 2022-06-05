@@ -5,32 +5,32 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 • `{i}alive` | `{i}alive inline`
-    Check if your bot is working.
+    بررسی کنید که آیا ربات شما کار می کند.
 
 • `{i}ping`
-    Check Ultroid's response time.
+    زمان پاسخگویی النلیل را بررسی کنید.
 
 • `{i}update`
-    See changelogs if any update is available.
+    در صورت در دسترس بودن هر گونه به روز رسانی، گزارش تغییرات را مشاهده کنید.
 
 • `{i}cmds`
-    View all plugin names.
+    مشاهده تمام نام های افزونه ها.
 
 • `{i}restart`
-    To restart your bot.
+    راه اندازی مجدد ربات.
 
 • `{i}logs (sys)`
-    Get the full terminal logs.
+    دریافت گزارشای کامل ترمینال.
 • `{i}logs carbon`
-    Get the carbonized sys logs.
+    دریافت گزارش های سیستمیه کربنی شده.
 • `{i}logs heroku`
-   Get the latest 100 lines of heroku logs.
+   دریافت ۱۰۰ خطه اخره گزارش های هیروکو.
 
 • `{i}shutdown`
-    Turn off your bot.
+    خاموش کردن ربات.
 """
 import os
 import sys
@@ -50,7 +50,7 @@ from . import HOSTED_ON, LOGS
 try:
     from git import Repo
 except ImportError:
-    LOGS.error("bot: 'gitpython' module not found!")
+    LOGS.error("ربات: 'gitpython' ماژول پیدا نشد!")
     Repo = None
 
 from telethon.utils import resolve_bot_file_id
@@ -88,21 +88,21 @@ from . import (
 ULTPIC = INLINE_PIC or choice(ULTROID_IMAGES)
 buttons = [
     [
-        Button.url(get_string("bot_3"), "https://github.com/TeamUltroid/Ultroid"),
-        Button.url(get_string("bot_4"), "t.me/UltroidSupport"),
+        Button.url(get_string("bot_3"), "https://t.me/ElenLiL"),
+        Button.url(get_string("bot_4"), "t.me/ElenLiLBoT"),
     ]
 ]
 
 # Will move to strings
 alive_txt = """
-The Ultroid Userbot
+The ElenLiL Userbot
 
   ◍ Version - {}
   ◍ Py-Ultroid - {}
   ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n🌀 <b>Ultroid Version -><b> <code>{}</code>\n🌀 <b>PyUltroid -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>Join @TheUltroid</b>"
+in_alive = "{}\n\n🌀 <b>ورژن ربات -><b> <code>{}</code>\n🌀 <b>پایتون ربات -></b> <code>{}</code>\n🌀 <b>پایتون -></b> <code>{}</code>\n🌀 <b>آپتایم -></b> <code>{}</code>\n🌀 <b>برنچ -></b> [ {} ]\n\n• <b>جوین @ElenLiLBoT</b>"
 
 
 @callback("alive")
@@ -258,7 +258,7 @@ async def _(event):
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**Ultroid Logs.**", file=file)
+        await event.reply("**گزارشات ربات.**", file=file)
     elif opt == "open":
         file = open("ultroid.log", "r").read()[-4000:]
         return await event.eor(f"`{file}`")
@@ -308,7 +308,7 @@ async def inline_alive(ult):
                     await builder.document(
                         pic,
                         title="Inline Alive",
-                        description="@TheUltroid",
+                        description="@ElenLiLBoT",
                         parse_mode="html",
                         buttons=buttons,
                     )
@@ -345,9 +345,9 @@ async def _(e):
         x = await asst.send_file(
             udB.get_key("LOG_CHANNEL"),
             ULTPIC,
-            caption="• **Update Available** •",
+            caption="• **آپدیت دردسترسه** •",
             force_document=False,
-            buttons=Button.inline("Changelogs", data="changes"),
+            buttons=Button.inline("گزارشات تغییرات", data="changes"),
         )
         Link = x.message_link
         await xx.edit(
@@ -357,7 +357,7 @@ async def _(e):
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/TeamUltroid/Ultroid/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>رباتت هس </code><strong>up-to-date</strong><code> با </code><strong><a href="https://t.me/ElenLiLBoT">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
@@ -369,7 +369,7 @@ async def updava(event):
     await asst.send_file(
         udB.get_key("LOG_CHANNEL"),
         ULTPIC,
-        caption="• **Update Available** •",
+        caption="• **آپدیت دردسترسه** •",
         force_document=False,
         buttons=Button.inline("Changelogs", data="changes"),
     )
