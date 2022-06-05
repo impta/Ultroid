@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}setflood <integer>`
-    Set flood limit in a chat.
+• `{i}setflood <عدد>`
+    محدودیت فلود را در یک چت تنظیم کنید.
 
 • `{i}remflood`
-    Remove flood limit from a chat.
+    محدودیت فلود را از چت حذف کنید.
 
 • `{i}getflood`
-    Get flood limit of a chat.
+    دریافت محدودیت فلود از یک چت.
 """
 
 import re
@@ -62,7 +62,7 @@ if Redis("ANTIFLOOD"):
                 await event.reply(f"#AntiFlood\n\n{get_string('antiflood_3')}")
                 await asst.send_message(
                     int(Redis("LOG_CHANNEL")),
-                    f"#Antiflood\n\n`Muted `[{name}](tg://user?id={event.sender_id})` in {chat}`",
+                    f"#آنتی_فلود\n\n`سکوت شد `[{name}](tg://user?id={event.sender_id})` در {chat}`",
                     buttons=Button.inline(
                         "Unmute", data=f"anti_{event.sender_id}_{event.chat_id}"
                     ),
@@ -84,7 +84,7 @@ async def unmuting(e):
     chat_title = (await ultroid_bot.get_entity(chat)).title
     await ultroid_bot.edit_permissions(chat, user, send_messages=True)
     await e.edit(
-        f"#Antiflood\n\n`Unmuted `[{user_name}](tg://user?id={user})` in {chat_title}`"
+        f"#آنتی_فلود\n\n`لغو سکوت شد `[{user_name}](tg://user?id={user})` در {chat_title}`"
     )
 
 
