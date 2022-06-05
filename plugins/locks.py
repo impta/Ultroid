@@ -5,13 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}lock <msgs/media/sticker/gif/games/inline/polls/invites/pin/changeinfo>`
-    Lock the Used Setting in Used Group.
+    قفل کردن در گروه.
 
 • `{i}unlock <msgs/media/sticker/gif/games/inline/polls/invites/pin/changeinfo>`
-    UNLOCK the Used Setting in Used Group.
+    لغو قفل در گروه.
 """
 from pyUltroid.functions.admins import lock_unlock
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
@@ -25,12 +25,12 @@ from . import ultroid_cmd
 async def un_lock(e):
     mat = e.pattern_match.group(2).strip()
     if not mat:
-        return await e.eor("`Give some Proper Input..`", time=5)
+        return await e.eor("`ورودی درست درمون بده..`", time=5)
     lock = e.pattern_match.group(1) == ""
     ml = lock_unlock(mat, lock)
     if not ml:
         return await e.eor("`Incorrect Input`", time=5)
-    msg = "Locked" if lock else "Unlocked"
+    msg = "قفل شد" if lock else "باز شد"
     try:
         await e.client(EditChatDefaultBannedRightsRequest(e.chat_id, ml))
     except Exception as er:
