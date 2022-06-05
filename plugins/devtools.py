@@ -6,7 +6,7 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}bash <cmds>`
 • `{i}bash -c <cmds>` Carbon image as command output.
