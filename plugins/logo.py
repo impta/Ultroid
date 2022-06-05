@@ -5,12 +5,12 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}logo <text>`
-   Generate a logo of the given Text
-   Or Reply To image , to write ur text on it.
-   Or Reply To Font File, To write with that font.
+   ساخته لوگو با متنه داده شده
+   یا روی تصویری ک میخای متنت روش بره ریپلای کن.
+   یا روی فایل فونت ریپلای کن تا متنت با اون فونت نوشته شه.
 
 """
 import glob
@@ -29,7 +29,7 @@ async def logo_gen(event):
     xx = await event.eor(get_string("com_1"))
     name = event.pattern_match.group(1).strip()
     if not name:
-        await xx.eor("`Give a name too!`", time=5)
+        await xx.eor("`ی اسم هم بده!`", time=5)
     bg_, font_ = None, None
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
@@ -50,7 +50,7 @@ async def logo_gen(event):
         else:
             pics = []
             async for i in event.client.iter_messages(
-                "@UltroidLogos", filter=InputMessagesFilterPhotos
+                "@ElenLiL", filter=InputMessagesFilterPhotos
             ):
                 pics.append(i)
             id_ = random.choice(pics)
