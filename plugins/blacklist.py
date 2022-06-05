@@ -5,19 +5,19 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}blacklist <word/all words with a space>`
-    blacklist the choosen word in that chat.
+• `{i}blacklist <کلمه/تمام کلمات با فاصله>`
+    کلمه انتخاب شده در چت را در لیست سیاه قرار دهید.
 
-• `{i}remblacklist <word>`
-    Remove the word from blacklist..
+• `{i}remblacklist <کلمه>`
+    حذف کلمه از لیست سیاه..
 
 • `{i}listblacklist`
-    list all blacklisted words.
+    لیسته تمام کلماته موجود در لیست سیاه.
 
-  'if a person uses blacklist Word his/her msg will be deleted'
-  'And u Must be Admin in that Chat'
+  'اگر شخصی از کلمه ی موجود در لیست سیاه استفاده کند پیام او حذف می شود'
+  'و شما باید در آن چت ادمین باشید'
 """
 
 from pyUltroid.dB.blacklist_db import (
