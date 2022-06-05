@@ -5,19 +5,19 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}addai <reply to user/give username/userid>`
-   Add a AI ChatBot to reply to that user.
+   اضافه کردنه شخص به هوش مصنوعی، تا اتوماتیک اکانتتون روش ریپلای کنه.
 
 • `{i}remai <reply to user/give username/userid>`
-   Remove the AI ChatBot.
+   حذف شخص از چت هوش مصنوعی.
 
 • `{i}repai <reply to user/give a message>`
-   Reply to the user with a message by an AI.
+   ریپلای زدنه اتوماتیک به شخص، با یک پیام مشخص.
 
 • `{i}listai`
-   List the currently AI added users.
+   لیست اشخاصی ک درحاله حاظر ب ربات هوش مصنوعی اضافه شدن.
 """
 
 from pyUltroid.functions.tools import get_chatbot_reply
@@ -54,7 +54,7 @@ async def lister(event):
     users = key.get(event.chat_id, [])
     if not users:
         return await event.eor(get_string("chab_2"), time=5)
-    msg = "**Total List Of AI Enabled Users In This Chat :**\n\n"
+    msg = "**لیست تمام افراده اضافه شده به هوش مصنوعی در این گروه :**\n\n"
     for i in users:
         try:
             user = await event.client.get_entity(int(i))
@@ -96,4 +96,4 @@ async def chat_bot_fn(event, type_):
             if chat in key and not key[chat]:
                 del key[chat]
     udB.set_key("CHATBOT_USERS", str(key))
-    await event.eor(f"**ChatBot:**\n{type_}ed {inline_mention(user_)}")
+    await event.eor(f"**چت بات:**\n{type_}ed {inline_mention(user_)}")
