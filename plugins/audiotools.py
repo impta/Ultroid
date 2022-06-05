@@ -5,17 +5,17 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-`{i}makevoice <reply to audio>`
-   creates a voice note from Audio.
+`{i}makevoice <ریپلای روی فایل صوتی>`
+   یک یادداشت صوتی از صدا ایجاد می کند.
 
-`{i}atrim <from time> - <to time>`
-   trim audio as per given time.
-   time must be in seconds. `{i}atrim 50-70`
+`{i}atrim <از تایم> - <به تایم>`
+   صدا را طبق زمان معین کوتاه کنید.
+   تایم رو باید به ثانیه وارد کنید. `{i}atrim 50-70`
 
-`{i}extractaudio <reply to media>`
-   To extract the audio from it.
+`{i}extractaudio <ریپلای روی کلیپ>`
+   برای تبدیل فایل تصویری به صوتی.
 
 """
 
@@ -63,7 +63,7 @@ async def vnc(e):
         )
     except Exception as er:
         LOGS.exception(er)
-        return await xxx.edit("`Failed to convert in Voice...`")
+        return await xxx.edit("`تبدیل ب صدا انجام نشد...`")
     await xxx.delete()
     os.remove(file.name)
     os.remove("out.opus")
@@ -94,7 +94,7 @@ async def trim_aud(e):
             vfile,
             xxx,
             c_time,
-            "Downloading " + name + "...",
+            "دانلود " + name + "...",
         )
         o_size = os.path.getsize(file.name)
         d_time = time.time()
@@ -106,7 +106,7 @@ async def trim_aud(e):
             return await eod(xxx, get_string("audiotools_6"))
         ss, dd = stdr(int(a)), stdr(int(b))
         xxx = await xxx.edit(
-            f"Downloaded `{file.name}` of `{humanbytes(o_size)}` in `{diff}`.\n\nNow Trimming Audio from `{ss}` to `{dd}`..."
+            f"دانلود شد `{file.name}` از `{humanbytes(o_size)}` در `{diff}`.\n\nحالا، بریدن صدا از `{ss}` به `{dd}`..."
         )
         cmd = f'ffmpeg -i "{file.name}" -preset ultrafast -ss {ss} -to {dd} -vn -acodec copy "{out}" -y'
         await bash(cmd)
@@ -117,7 +117,7 @@ async def trim_aud(e):
             out,
             f_time,
             xxx,
-            "Uploading " + out + "...",
+            "آپلود " + out + "...",
         )
         attributes = await set_attributes(out)
 
@@ -150,7 +150,7 @@ async def ex_aud(e):
         vfile,
         msg,
         c_time,
-        "Downloading " + name + "...",
+        "دانلود " + name + "...",
     )
     out_file = file.name + ".aac"
     cmd = f"ffmpeg -i {file.name} -vn -acodec copy {out_file}"
@@ -165,7 +165,7 @@ async def ex_aud(e):
             out_file,
             f_time,
             msg,
-            "Uploading " + out_file + "...",
+            "آپلود " + out_file + "...",
         )
     except FileNotFoundError:
         return await eor(msg, get_string("audiotools_9"))
