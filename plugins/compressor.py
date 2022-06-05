@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}compress <reply to video>`
-    optional `crf` and `stream`
-    Example : `{i}compress 27 stream` or `{i}compress 28`
-    Encode the replied video according to CRF value.
-    Less CRF == High Quality, More Size
-    More CRF == Low Quality, Less Size
-    CRF Range = 20-51
-    Default = 27
+    اختیاری `crf` و `stream`
+    مثال : `{i}compress 27 stream` or `{i}compress 28`
+    ویدیوی ریپلای شده را با توجه به مقدار CRF رمزگذاری کنید.
+    CRF کمتر == کیفیت بالا, حجم بالا
+    CRF بیشتر == کیفیت پایین, حجم پایین
+    محدوده CRF = 20-51
+    پیشفرض = 27
 
 """
 
@@ -70,7 +70,7 @@ async def _(e):
             vfile,
             xxx,
             c_time,
-            "Downloading " + name + "...",
+            "دانلود " + name + "...",
         )
         o_size = os.path.getsize(file.name)
         d_time = time.time()
@@ -78,7 +78,7 @@ async def _(e):
         file_name = (file.name).split("/")[-1]
         out = file_name.replace(file_name.split(".")[-1], "compressed.mkv")
         await xxx.edit(
-            f"`Downloaded {file.name} of {humanbytes(o_size)} in {diff}.\nNow Compressing...`"
+            f"`دانلود شد {file.name} از {humanbytes(o_size)} در {diff}.\nشروع فشرده سازی...`"
         )
         x, y = await bash(
             f'mediainfo --fullscan """{file.name}""" | grep "Frame count"'
@@ -135,13 +135,13 @@ async def _(e):
         f_time = time.time()
         difff = time_formatter((f_time - d_time) * 1000)
         await xxx.edit(
-            f"`Compressed {humanbytes(o_size)} to {humanbytes(c_size)} in {difff}\nTrying to Upload...`"
+            f"`فشرده شده {humanbytes(o_size)} ب {humanbytes(c_size)} در {difff}\nشروعه آپلود...`"
         )
         differ = 100 - ((c_size / o_size) * 100)
-        caption = f"**Original Size: **`{humanbytes(o_size)}`\n"
-        caption += f"**Compressed Size: **`{humanbytes(c_size)}`\n"
-        caption += f"**Compression Ratio: **`{differ:.2f}%`\n"
-        caption += f"\n**Time Taken To Compress: **`{difff}`"
+        caption = f"**سایز اصلی: **`{humanbytes(o_size)}`\n"
+        caption += f"**سایز فشرده شده: **`{humanbytes(c_size)}`\n"
+        caption += f"**نسبت تراکم: **`{differ:.2f}%`\n"
+        caption += f"\n**زمان صرف شده برای فشرده سازی: **`{difff}`"
         mmmm = await uploader(
             out,
             out,
