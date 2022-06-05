@@ -5,19 +5,19 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}send <username/id> <reply/type>`
-    send message to User/Chat.
+    ارسال پیام ب شخص/گپ.
 
 • `{i}fwdreply <reply to msg>`
-    Reply to someone's msg by forwarding it in private.
+    ریپلای با فوروارد در خصوصی.
 
 • `{i}save <reply message>`
-    Save that replied msg to ur saved messages box.
+    سیو کردنه پیامه ریپلای شده در کلاد.
 
 • `{i}fsave <reply message>`
-    Forward that replied msg to ur saved messages.
+    فورارد پیامه ریپلای شده در کلاد.
 """
 
 from . import HNDLR, eod, get_string, ultroid_cmd
@@ -66,10 +66,10 @@ async def saf(e):
     x = await e.get_reply_message()
     if not x:
         return await eod(
-            e, "Reply to Any Message to save it to ur saved messages", time=5
+            e, "رو یچیزی ریپلای کن تا سیوش کنم تو کلاد", time=5
         )
     if e.pattern_match.group(1).strip() == "f":
         await x.forward_to(e.sender_id)
     else:
         await e.client.send_message(e.sender_id, x)
-    await e.eor("Message saved to Your Pm/Saved Messages.", time=5)
+    await e.eor("پیام تو کلادت ذخیره شد", time=5)
