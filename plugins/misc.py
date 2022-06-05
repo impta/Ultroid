@@ -4,22 +4,22 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}eod`
-    `Get Event of the Today`
+    `دریافت رویداد های امروز`
 
 • `{i}pntrst <link/id>`
-    Download and send pinterest pins
+    دانلود و ارسال پین های پینترست
 
 • `{i}gadget <search query>`
-    Gadget Search from Telegram.
+    جستجو از تلگرام.
 
 • `{i}randomuser`
-   Generate details about a random user.
+   ساخت جزئیات از افراده رندوم.
 
 • `{i}ascii <reply image>`
-    Convert replied image into html.
+    تبدیل عکسه ریپلای شده به اچ تی ام ال.
 """
 
 import os
@@ -43,7 +43,7 @@ from . import async_searcher, get_random_user_data, get_string, re, ultroid_cmd
 async def diela(e):
     m = await e.eor(get_string("com_1"))
     li = "https://daysoftheyear.com"
-    te = "🎊 **Events of the Day**\n\n"
+    te = "🎊 **رویداد های امروز**\n\n"
     da = dt.today()
     month = da.strftime("%b")
     li += "/days/" + month + "/" + da.strftime("%F").split("-")[2]
@@ -61,7 +61,7 @@ async def diela(e):
 async def pinterest(e):
     m = e.pattern_match.group(1).strip()
     if not m:
-        return await e.eor("`Give pinterest link.`", time=3)
+        return await e.eor("`لینکه پینترست بده.`", time=3)
     soup = await async_searcher(
         "https://www.expertstool.com/download-pinterest-video/",
         data={"url": m},
@@ -70,7 +70,7 @@ async def pinterest(e):
     try:
         _soup = bs(soup, "html.parser").find("table").tbody.find_all("tr")
     except BaseException:
-        return await e.eor("`Wrong link or private pin.`", time=5)
+        return await e.eor("`لینک اشتباهه یا پین خصوصیه`", time=5)
     if len(_soup) > 1:
         file = _soup[1]
     else:
@@ -83,16 +83,16 @@ async def pinterest(e):
 async def mobs(e):
     mat = e.pattern_match.group(1).strip()
     if not mat:
-        await e.eor("Please Give a Mobile Name to look for.")
+        await e.eor("لطفا ی اسم موبایلی بده ک دنبالش بگردم.")
     query = mat.replace(" ", "%20")
     jwala = f"https://gadgets.ndtv.com/search?searchtext={query}"
     c = await async_searcher(jwala)
     b = bs(c, "html.parser", from_encoding="utf-8")
     co = b.find_all("div", "rvw-imgbox")
     if not co:
-        return await e.eor("No Results Found!")
+        return await e.eor("چیزی پیدا نشد!")
     bt = await e.eor(get_string("com_1"))
-    out = "**📱 Mobile / Gadgets Search**\n\n"
+    out = "**📱 موبایل / گجت جستجو**\n\n"
     li = co[0].find("a")
     imu, title = None, li.find("img")["title"]
     cont = await async_searcher(li["href"])
@@ -127,7 +127,7 @@ async def _gen_data(event):
 )
 async def _(e):
     if not Img2HTMLConverter:
-        return await e.eor("'img2html-converter' not installed!")
+        return await e.eor("'img2html-converter' نصب نیس!")
     if not e.reply_to_msg_id:
         return await e.eor(get_string("ascii_1"))
     m = await e.eor(get_string("ascii_2"))
