@@ -46,19 +46,19 @@ async def _help(ult):
     if plug:
         try:
             if plug in HELP["Official"]:
-                output = f"**Plugin** - `{plug}`\n"
+                output = f"**افزونه** - `{plug}`\n"
                 for i in HELP["Official"][plug]:
                     output += i
                 output += "\n© @ElenLiL"
                 await ult.eor(output)
             elif HELP.get("Addons") and plug in HELP["Addons"]:
-                output = f"**Plugin** - `{plug}`\n"
+                output = f"**افزونه** - `{plug}`\n"
                 for i in HELP["Addons"][plug]:
                     output += i
                 output += "\n© @ElenLiL"
                 await ult.eor(output)
             elif HELP.get("VCBot") and plug in HELP["VCBot"]:
-                output = f"**Plugin** - `{plug}`\n"
+                output = f"**افزونه** - `{plug}`\n"
                 for i in HELP["VCBot"][plug]:
                     output += i
                 output += "\n© @ElenLiL"
@@ -85,12 +85,12 @@ async def _help(ult):
                                 break
                     if not file:
                         # the enter command/plugin name is not found
-                        text = f"`{plug}` is not a valid plugin!"
+                        text = f"`{plug}` این افزونه نامعتبره!"
                         if extractOne:
                             best_match = extractOne(plug, compare_strings)
-                            text += "\nDid you mean `{}`?".format(best_match[0])
+                            text += "\nمنظورت اینه `{}`?".format(best_match[0])
                         return await ult.eor(text)
-                    output = f"**Command** `{plug}` **found in plugin** - `{file}`\n"
+                    output = f"**فرمان** `{plug}` **افزونه پیدا شده** - `{file}`\n"
                     if file in HELP["Official"]:
                         for i in HELP["Official"][file]:
                             output += i
@@ -104,7 +104,7 @@ async def _help(ult):
                     await ult.eor(output)
         except BaseException as er:
             LOGS.exception(er)
-            await ult.eor("Error 🤔 occured.")
+            await ult.eor("ارور 🤔 ")
     else:
         try:
             results = await ult.client.inline_query(asst.me.username, "ultd")
@@ -114,7 +114,7 @@ async def _help(ult):
                 z.extend(x)
             cmd = len(z) + 10
             if udB.get_key("MANAGER") and udB.get_key("DUAL_HNDLR") == "/":
-                _main_help_menu[2:3] = [[Button.inline("• Manager Help •", "mngbtn")]]
+                _main_help_menu[2:3] = [[Button.inline("• راهنمای مدیر •", "mngbtn")]]
             return await ult.reply(
                 get_string("inline_4").format(
                     OWNER_NAME,
