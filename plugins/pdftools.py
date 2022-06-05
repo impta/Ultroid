@@ -5,7 +5,7 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}pdf <page num> <reply to pdf file>`
     Extract nd Send page as a Image.(note-: For Extraction all pages just use .pdf)
