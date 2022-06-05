@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}addfilter <word><reply to a message>`
-    add the used word as filter relating to replied message.
+    کلمه استفاده شده را به عنوان فیلتر مربوط به پیام ریپلای شده اضافه کنید.
 
 • `{i}remfilter <word>`
-    Remove the filtered user..
+    حذف شخص فیلتر شده..
 
 • `{i}listfilter`
-    list all filters.
+    لیست تمام فیلتر ها.
 """
 
 import os
@@ -83,7 +83,7 @@ async def rf(e):
 async def lsnote(e):
     x = list_filter(e.chat_id)
     if x:
-        sd = "Filters Found In This Chats Are\n\n"
+        sd = "فیلتر های پیدا شده تو این گپ اینان\n\n"
         return await e.eor(sd + x)
     await e.eor(get_string("flr_6"))
 
