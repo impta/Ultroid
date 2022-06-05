@@ -5,23 +5,23 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 •`{i}invertgif`
-  Make Gif Inverted(negative).
+  معکوس کردنه گیف(نگاتیو).
 
 •`{i}bwgif`
-  Make Gif black and white
+  سیاه و سفید کردنه گیف
 
 •`{i}rvgif`
-  Reverse a gif
+  برعکس کردنه گیف
 
 •`{i}vtog`
-  Reply To Video , It will Create Gif
-  Video to Gif
+  رو ویدیو ریپلای کن تا تبدیل شه به گیف
+  ویدیو ب گیف
 
 •`{i}gif <query>`
-   Send video regarding to query.
+   ارسال ویدیو با کوئری.
 """
 import os
 import random
@@ -36,10 +36,10 @@ async def igif(e):
     match = e.pattern_match.group(1).strip()
     a = await e.get_reply_message()
     if not (a and a.media):
-        return await e.eor("`Reply To gif only`", time=5)
+        return await e.eor("`رو گیف ریپلای کن`", time=5)
     wut = mediainfo(a.media)
     if "gif" not in wut:
-        return await e.eor("`Reply To Gif Only`", time=5)
+        return await e.eor("`رو گیف ریپلای کن`", time=5)
     xx = await e.eor(get_string("com_1"))
     z = await a.download_media()
     if match == "bw":
@@ -60,11 +60,11 @@ async def igif(e):
 async def reverse_gif(event):
     a = await event.get_reply_message()
     if not (a and a.media) and "video" not in mediainfo(a.media):
-        return await e.eor("`Reply To Video only`", time=5)
+        return await e.eor("`رو ویدیو ریپلای کن`", time=5)
     msg = await event.eor(get_string("com_1"))
     file = await a.download_media()
     await bash(f'ffmpeg -i "{file}" -vf reverse -af areverse reversed.mp4 -y')
-    await event.respond("- **Reversed Video/GIF**", file="reversed.mp4")
+    await event.respond("- **ویدیو/گیف معکوس شده**", file="reversed.mp4")
     await msg.delete()
     os.remove(file)
     os.remove("reversed.mp4")
@@ -81,7 +81,7 @@ async def gifs(ult):
         except IndexError:
             pass
     if not get:
-        return await ult.eor(f"`{HNDLR}gif <query>`")
+        return await ult.eor(f"`{HNDLR}گیف <query>`")
     m = await ult.eor(get_string("com_2"))
     gifs = await ult.client.inline_query("gif", get)
     if not n:
@@ -100,10 +100,10 @@ async def gifs(ult):
 async def vtogif(e):
     a = await e.get_reply_message()
     if not (a and a.media):
-        return await e.eor("`Reply To video only`", time=5)
+        return await e.eor("`رو ویدیو ریپلای کن`", time=5)
     wut = mediainfo(a.media)
     if "video" not in wut:
-        return await e.eor("`Reply To Video Only`", time=5)
+        return await e.eor("`رو ویدیو ریپلای کن`", time=5)
     xx = await e.eor(get_string("com_1"))
     dur = a.media.document.attributes[0].duration
     tt = time.time()
