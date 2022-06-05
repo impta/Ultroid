@@ -5,10 +5,10 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 •`{i}glitch <replt to media>`
-    gives a glitchy gif.
+    یک گیف پر زرق و برق می دهد.
 """
 import os
 
