@@ -5,14 +5,14 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}button <text with button format`
-   create button u can reply to pic also
+• `{i}button <متن با قالب دکمه>`
+   برای ساخت دکمه حتی میتونید روی عکس ریپلای کنید
 
-Format:- `{i}button Hey There! @UseUltroid 😎.
-[Ultroid | t.me/theUltroid][Support | t.me/UltroidSupport | same]
-[TeamUltroid | t.me/TeamUltroid]`
+Format:- `{i}button Hey There! @ElenLiL 😎.
+[ElenLiL | t.me/ElenLiL][Support | t.me/ElenLiLBoT | same]
+[ElenLiL | t.me/ElenLiL]`
 """
 import os
 
@@ -51,7 +51,7 @@ async def butt(event):
     except IndexError:
         if not text:
             return await event.eor(
-                f"**Please give some text in correct format.**\n\n`{HNDLR}help button`",
+                f"**لطفا متنی با قالب صحیح بدهید.**\n\n`{HNDLR}help button`",
             )
     text, buttons = get_msg_button(text)
     if buttons:
