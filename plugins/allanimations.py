@@ -317,7 +317,7 @@ async def bluedevilcouple(couple):
 async def bluedevilsupreme(supreme):
     await eor(supreme, l)
 
-@ultroid_cmd(pattern=r"india")
+@ultroid_cmd(pattern=r"iran")
 async def bluedevilindia(india):
     await eor(india, J)
 
