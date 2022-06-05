@@ -5,26 +5,26 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}mute <reply to msg/ user id>`
-    Mute user in current chat.
+    سکوته شخص در گپه فعلی.
 
 • `{i}unmute <reply to msg/ user id>`
-    Unmute user in current chat.
+    لغو سکوت شخص در گپه فعلی.
 
 • `{i}dmute <reply to msg/ user id>`
-    Mute user in current chat by deleting msgs.
+    سکوت کردنه شخص و سپس حذف پیام عان.
 
 • `{i}undmute <reply to msg/ use id>`
-    Unmute dmuted user in current chat.
+    لغو سکوت کردنه شخص و سپس حذف پیامه عان.
 
 • `{i}tmute <time> <reply to msg/ use id>`
     s- seconds
     m- minutes
     h- hours
     d- days
-    Mute user in current chat with time.
+    سکوته شخص با زمانبندی.
 """
 from pyUltroid.dB.mute_db import is_muted, mute, unmute
 from pyUltroid.functions.admins import ban_time
@@ -46,7 +46,7 @@ async def watcher(event):
     pattern="dmute( (.*)|$)",
 )
 async def startmute(event):
-    xx = await event.eor("`Muting...`")
+    xx = await event.eor("`سکوت...`")
     input_ = event.pattern_match.group(1).strip()
     if input_:
         try:
@@ -57,21 +57,21 @@ async def startmute(event):
         reply = await event.get_reply_message()
         userid = reply.sender_id
         if reply.out or userid in [ultroid_bot.me.id, asst.me.id]:
-            return await xx.eor("`You cannot mute yourself or your assistant bot.`")
+            return await xx.eor("`خودت یا رباتتو نمیتونی سکوت کنی.`")
     elif event.is_private:
         userid = event.chat_id
     else:
-        return await xx.eor("`Reply to a user or add their userid.`", time=5)
+        return await xx.eor("`یا عای دیشو بزن یا ریپ بزن روش.`", time=5)
     chat = await event.get_chat()
     if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None:
         if not chat.admin_rights.delete_messages:
-            return await xx.eor("`No proper admin rights...`", time=5)
+            return await xx.eor("`دسترسی ادمینی نداری...`", time=5)
     elif "creator" not in vars(chat) and not event.is_private:
-        return await xx.eor("`No proper admin rights...`", time=5)
+        return await xx.eor("`دسترسی ادمینی نداری...`", time=5)
     if is_muted(event.chat_id, userid):
-        return await xx.eor("`This user is already muted in this chat.`", time=5)
+        return await xx.eor("`ایشون از قبل سکوت بود`", time=5)
     mute(event.chat_id, userid)
-    await xx.eor("`Successfully muted...`", time=3)
+    await xx.eor("`با موفقیت سکوت شد...`", time=3)
 
 
 @ultroid_cmd(
@@ -90,11 +90,11 @@ async def endmute(event):
     elif event.is_private:
         userid = event.chat_id
     else:
-        return await xx.eor("`Reply to a user or add their userid.`", time=5)
+        return await xx.eor("`یا ریپلای کن یا عای دیشو بده`", time=5)
     if not is_muted(event.chat_id, userid):
-        return await xx.eor("`This user is not muted in this chat.`", time=3)
+        return await xx.eor("`ایشون اصن سکوت نیس ک بخاد لغو بشه`", time=3)
     unmute(event.chat_id, userid)
-    await xx.eor("`Successfully unmuted...`", time=3)
+    await xx.eor("`با موفقیت لغو سکوت شد...`", time=3)
 
 
 @ultroid_cmd(
@@ -103,12 +103,12 @@ async def endmute(event):
     manager=True,
 )
 async def _(e):
-    xx = await e.eor("`Muting...`")
+    xx = await e.eor("`سکوت...`")
     huh = e.text.split()
     try:
         tme = huh[1]
     except IndexError:
-        return await xx.eor("`Time till mute?`", time=5)
+        return await xx.eor("`تایم سکوت?`", time=5)
     try:
         input = huh[2]
     except IndexError:
@@ -124,7 +124,7 @@ async def _(e):
     else:
         return await xx.eor(get_string("tban_1"), time=3)
     if userid == ultroid_bot.uid:
-        return await xx.eor("`I can't mute myself.`", time=3)
+        return await xx.eor("`من خودمو نمیتونم سکوت کنم.`", time=3)
     try:
         bun = ban_time(xx, tme)
         await e.client.edit_permissions(
@@ -135,7 +135,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` [{name}](tg://user?id={userid}) `in {chat.title} for {tme}`",
+            f"`با موفقیت سکوت شد` [{name}](tg://user?id={userid}) `در {chat.title} برای {tme}`",
             time=5,
         )
     except BaseException as m:
@@ -148,7 +148,7 @@ async def _(e):
     manager=True,
 )
 async def _(e):
-    xx = await e.eor("`Unmuting...`")
+    xx = await e.eor("`لغوسکوت...`")
     input = e.pattern_match.group(1).strip()
     chat = await e.get_chat()
     if e.reply_to_msg_id:
@@ -169,7 +169,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Unmuted` [{name}](tg://user?id={userid}) `in {chat.title}`",
+            f"`با موفقیت لغو سکوت شد` [{name}](tg://user?id={userid}) `در {chat.title}`",
             time=5,
         )
     except BaseException as m:
@@ -195,7 +195,7 @@ async def _(e):
     else:
         return await xx.eor(get_string("tban_1"), time=3)
     if userid == ultroid_bot.uid:
-        return await xx.eor("`I can't mute myself.`", time=3)
+        return await xx.eor("`خودمو نمیتونم سکوت کنم.`", time=3)
     try:
         await e.client.edit_permissions(
             chat.id,
@@ -205,7 +205,7 @@ async def _(e):
         )
         await eod(
             xx,
-            f"`Successfully Muted` {name} `in {chat.title}`",
+            f"`با موفقیت سکوت شد` {name} `در {chat.title}`",
         )
     except BaseException as m:
         await xx.eor(f"`{m}`", time=5)
