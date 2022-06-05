@@ -5,33 +5,33 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 🔹 `{i}shift <from channel> | <to channel>`
-     This will transfer all old post from channel A to channel B.
-      (u can use username or id of channel too)
+     با این کار تمام پست های قدیمی از کانال A به کانال B منتقل می شود.
+      (می توانید از نام کاربری یا شناسه کانال نیز استفاده کنید)
       example : `{i}shift @abc | @xyz`
-      [note - this (" | ") sign is nessesary]
+      [نکته - این (" | ") علامت الزامیه]
 
-🔹 For auto-posting/forwarding all new message from any source channel to any destination channel.
+🔹 برای ارسال_خودکار/فوروارد همه پیام های جدید از هر کانال منبع به هر کانال مقصد.
 
    `{i}asource <channel username or id>`
-      This add source channel to database
+      این کانال منبع را به پایگاه داده اضافه می کند
    `{i}dsource <channel username or id>`
-      This remove source channels from database
+      این کانال های منبع را از پایگاه داده حذف می کند
    `{i}listsource <channel username or id>`
-      Show list of source channels
+      نمایش لیست کانال های منبع
 
 
    `{i}adest <channel username or id>`
-      This add Ur channels to database
+      این کانال های شما را به پایگاه داده اضافه می کند
    `{i}ddest <channel username or id>`
-      This Remove Ur channels from database
+      این کانال های شما را از پایگاه داده حذف می کند
    `{i}listdest <channel username or id>`
-      Show List of Ur channels
+      نمایش لیست کانال های شما
 
-   'you can set many channels in database'
-   'For activating auto-post use `{i}setdb AUTOPOST True` '
+   'شما می توانید کانال های زیادی را در پایگاه داده تنظیم کنید'
+   'فعال کردنه پست خودکار با استفاده از `{i}setdb AUTOPOST True` '
 """
 
 import asyncio
@@ -73,7 +73,7 @@ async def autopost_func(e):
                 ERROR[str(ex)]
             except KeyError:
                 ERROR.update({str(ex): ex})
-                Error = f"**Error on AUTOPOST**\n\n`{ex}`"
+                Error = f"**ارور در پست خودکار**\n\n`{ex}`"
                 await asst.send_message(udB.get_key("LOG_CHANNEL"), Error)
 
 
@@ -102,7 +102,7 @@ async def _(e):
             await e.client.send_message(int(d), msg)
         except BaseException as er:
             LOGS.exception(er)
-    await z.edit("Done")
+    await z.edit("حله")
 
 
 @ultroid_cmd(pattern="asource (.*)")
@@ -148,7 +148,7 @@ async def dd(event):
         rem_source_channel(y)
         await eor(x, get_string("cha_5"), time=5)
     elif not is_source_channel_added(y):
-        await eor(x, "Source channel is already removed from database. ", time=3)
+        await eor(x, "کانال منبع قبلاً از پایگاه داده حذف شده است. ", time=3)
 
 
 @ultroid_cmd(pattern="listsource")
@@ -156,7 +156,7 @@ async def list_all(event):
     x = await event.eor(get_string("com_1"))
     num = get_no_source_channels()
     if not num:
-        return await eor(x, "No chats were added.", time=5)
+        return await eor(x, "هیچ گپی اضافه نشد.", time=5)
     msg = get_string("cha_8")
     channels = get_source_channels()
     for channel in channels:
@@ -166,7 +166,7 @@ async def list_all(event):
         except BaseException:
             name = ""
         msg += f"\n=> **{name}** [`{channel}`]"
-    msg += f"\nTotal {get_no_source_channels()} channels."
+    msg += f"\nتمام {get_no_source_channels()} چنل ها."
     if len(msg) > 4096:
         MSG = msg.replace("*", "").replace("`", "")
         with io.BytesIO(str.encode(MSG)) as out_file:
@@ -197,9 +197,9 @@ async def destination(e):
         y = e.chat_id
     if not is_destination_added(y):
         add_destination(y)
-        await e.eor("Destination added succesfully")
+        await e.eor("مقصد با موفقیت اضافه شد")
     elif is_destination_added(y):
-        await e.eor("Destination channel already added")
+        await e.eor("چنل مقصد قبلن اضافه شده")
 
 
 @ultroid_cmd(pattern="ddest( (.*)|$)")
@@ -209,7 +209,7 @@ async def dd(event):
     if chat_id == "all":
         await x.edit(get_string("bd_8"))
         udB.del_key("CH_DESTINATION")
-        await x.edit("Destinations database cleared.")
+        await x.edit("مقصد ها با موفقیت حذف شدن")
         return
     if chat_id:
         try:
@@ -221,12 +221,12 @@ async def dd(event):
         y = event.chat_id
     if is_destination_added(y):
         rem_destination(y)
-        await eor(x, "Destination removed from database")
+        await eor(x, "مقصد از پایگاه داده حذف شد")
     elif is_destination_added(y):
         rem_destination(y)
-        await eor(x, "Destination removed from database", time=5)
+        await eor(x, "مقصد از پایگاه داده حذف شد", time=5)
     elif not is_destination_added(y):
-        await eor(x, "Destination channel is already removed from database. ", time=5)
+        await eor(x, "چنله مقصد قبلن از پایگاه داده حذف شده بود ", time=5)
 
 
 @ultroid_cmd(pattern="listdest")
@@ -245,7 +245,7 @@ async def list_all(event):
         except BaseException:
             name = ""
         msg += f"\n=> **{name}** [`{channel}`]"
-    msg += f"\nTotal {get_no_destinations()} channels."
+    msg += f"\nتمام {get_no_destinations()} چنل ها."
     if len(msg) > 4096:
         MSG = msg.replace("*", "").replace("`", "")
         with io.BytesIO(str.encode(MSG)) as out_file:
@@ -255,7 +255,7 @@ async def list_all(event):
                 out_file,
                 force_document=True,
                 allow_cache=False,
-                caption="Destination channels in database",
+                caption="کانال های مقصد در پایگاه داده",
                 reply_to=event,
             )
             await x.delete()
