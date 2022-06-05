@@ -5,10 +5,10 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 •`{i}megadl <link>`
-  It Downloads and Upload Files from mega.nz links.
+  دانلود و اپلود از لینکه مگا.
 """
 import time
 from datetime import datetime
@@ -33,7 +33,7 @@ async def _(e):
     if os.path.isdir("mega"):
         await bash("rm -rf mega")
     os.mkdir("mega")
-    xx = await e.eor(f"{get_string('com_1')}\nTo Check Progress : `{HNDLR}ls mega`")
+    xx = await e.eor(f"{get_string('com_1')}\nبرای چک کردنه پروسه : `{HNDLR}ls mega`")
     s = datetime.now()
     x, y = await bash(f"megadl {link} --path mega")
     ok = get_all_files("mega")
