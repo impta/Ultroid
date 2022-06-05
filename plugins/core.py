@@ -5,31 +5,31 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}install <reply to plugin>`
-    To install the plugin,
+    برای نصب افزونه,
   `{i}install f`
-    To force Install.
+    برای نصب اجباری.
 
 • `{i}uninstall <plugin name>`
-    To unload and remove the plugin.
+    برای حذف افزونه.
 
 • `{i}load <plugin name>`
-    To load unloaded unofficial plugin.
+    برای لود کردن افزونه های غیر رسمی.
 
 • `{i}unload <plugin name>`
-    To unload unofficial plugin.
+    برای لغو لود افزونه های غیر رسمی.
 
 • `{i}help <plugin name>`
-    Shows you a help menu (like this) for every plugin.
+    ب شما منوی راهنمای افزونه رو نشون میده.
 
 • `{i}pick addons`
   `{i}pick vcbot`
-    Instantly load 'Addons' or 'VcBot'.
+    لود سریع 'Addons' یا 'VcBot'.
 
 • `{i}getaddons <raw link to code>`
-    Load Plugins from the given raw link.
+    لود کردنه افزونه توسطه لینک.
 """
 
 import os
@@ -58,7 +58,7 @@ async def unload(event):
     if zym in lsd:
         try:
             un_plug(shortname)
-            await event.eor(f"**Uɴʟᴏᴀᴅᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
+            await event.eor(f"**لغو لود** `{shortname}` **با موفقیت.**", time=3)
         except Exception as ex:
             return await event.eor(str(ex))
     elif zym in lst:
@@ -81,14 +81,14 @@ async def uninstall(event):
     if zym in lsd:
         try:
             un_plug(shortname)
-            await event.eor(f"**Uɴɪɴsᴛᴀʟʟᴇᴅ** `{shortname}` **Sᴜᴄᴄᴇssғᴜʟʟʏ.**", time=3)
+            await event.eor(f"**لغو نصب** `{shortname}` **با موفقیت.**", time=3)
             os.remove(f"addons/{shortname}.py")
         except Exception as ex:
             return await event.eor(str(ex))
     elif zym in lst:
         return await event.eor(get_string("core_15"), time=3)
     else:
-        return await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
+        return await event.eor(f"**افزونه ای با این اسم وجود ندارد** `{shortname}`", time=3)
 
 
 @ultroid_cmd(
@@ -122,18 +122,18 @@ async def pickup_call(ult):
     proc = await ult.eor(get_string("com_1"))
     if match == "addons":
         if udB.get_key("ADDONS"):
-            return await proc.eor("`Addons are Already Enabled!`", time=8)
+            return await proc.eor("`افزونه از قبل فعال بود`", time=8)
         udB.set_key("ADDONS", True)
         Loader(path="addons", key="Addons").load(func=load_addons)
     elif match == "vcbot":
         if udB.get_key("VCBOT"):
-            return await proc.eor("`VcBot is Already Active!`", time=8)
+            return await proc.eor("`ربات وویس چت از قبل فعال بود`", time=8)
         Loader(path="vcbot", key="VCBot").load()
     else:
         return await proc.eor(
-            "`Found Nothing to pick!\nSpecify what to pick..`", time=8
+            "`چیزی برای انتخاب پیدا نشد!\nمشخص کن چیو میخای انتخاب کنی..`", time=8
         )
-    await proc.eor(f"`Successfully Activated {match_}`", time=8)
+    await proc.eor(f"`با موفقیت فعال شد {match_}`", time=8)
 
 
 @ultroid_cmd(pattern="getaddons( (.*)|$)", fullsudo=True)
@@ -149,10 +149,10 @@ async def get_the_addons_lol(event):
     name_of_it = split_thelink[-1]
     plug = await async_searcher(thelink)
     fil = f"addons/{name_of_it}"
-    await xx.edit("Packing the codes...")
+    await xx.edit("پک کردنه کد ها...")
     with open(fil, "w", encoding="utf-8") as uult:
         uult.write(plug)
-    await xx.edit("Packed. Now loading the plugin..")
+    await xx.edit("پک شد، درحاله لود کردنه افزونه..")
     shortname = name_of_it.split(".")[0]
     try:
         load_addons(shortname)
