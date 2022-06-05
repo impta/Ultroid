@@ -6,20 +6,20 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}ul <path/to/file>`
-    Upload files on telegram.
-    Use following arguments before or after filename as per requirement:
-      `--stream` to upload as stream.
-      `--delete` to delete file after uploading.
-      `--no-thumb` to upload without thumbnail.
+    آپلود کردن فایل به تلگرام.
+    طبق نیاز از آرگومان های زیر قبل یا بعد از نام فایل استفاده کنید:
+      `--stream` برای آپلود بعنوان استریم.
+      `--delete` برای حذف فایل اپلود شده.
+      `--no-thumb` برای اپلود بدون تامبنیل.
 
 • `{i}dl <filename(optional)>`
-    Reply to file to download.
+    برای دانلود رو فایل ریپلای بزنید.
 
 • `{i}download <DDL> (| filename)`
-    Download using DDL. Will autogenerate filename if not given.
+    دانلود با استفاده از دی دی ال، اگ نام فایل را وارد نکنید، از خودش یچیزی میزنه.
 """
 
 import asyncio
@@ -70,13 +70,13 @@ async def down(event):
                     t,
                     msg,
                     s_time,
-                    f"Downloading from {link}",
+                    f"دانلود از {link}",
                 )
             ),
         )
     except InvalidURL:
         return await msg.eor("`Invalid URL provided :(`", time=5)
-    await msg.eor(f"`{filename}` `downloaded in {time_formatter(d*1000)}.`")
+    await msg.eor(f"`{filename}` `دانلود شد در {time_formatter(d*1000)}.`")
 
 
 @ultroid_cmd(
@@ -107,7 +107,7 @@ async def download(event):
                     file,
                     xx,
                     k,
-                    "Downloading " + filename + "...",
+                    "دانلود " + filename + "...",
                 )
             except MessageNotModifiedError as err:
                 return await xx.edit(str(err))
@@ -141,7 +141,7 @@ async def _(event):
     if match:
         match = match.strip()
     if not event.out and match == ".env":
-        return await event.reply("`You can't do this...`")
+        return await event.reply("`نمیتونی اینکارو بکنی...`")
     stream, force_doc, delete, thumb = (
         False,
         True,
@@ -174,7 +174,7 @@ async def _(event):
             return await event.try_delete()
         except Exception as er:
             LOGS.exception(er)
-        return await msg.eor("`File doesn't exist or path is incorrect!`")
+        return await msg.eor("`فایل وجود نداره یا مسیر نامعتبره!`")
     for result in results:
         if os.path.isdir(result):
             c, s = 0, 0
@@ -196,7 +196,7 @@ async def _(event):
                         force_document=force_doc,
                         thumb=thumb,
                         attributes=attributes,
-                        caption=f"`Uploaded` `{files}` `in {time_formatter(_*1000)}`",
+                        caption=f"`آپلود شد` `{files}` `در {time_formatter(_*1000)}`",
                         reply_to=event.reply_to_msg_id or event,
                     )
                     s += 1
@@ -219,7 +219,7 @@ async def _(event):
             force_document=force_doc,
             thumb=thumb,
             attributes=attributes,
-            caption=f"`Uploaded` `{result}` `in {time_formatter(_*1000)}`",
+            caption=f"`آپلود شد` `{result}` `در {time_formatter(_*1000)}`",
             reply_to=event.reply_to_msg_id or event,
         )
     await msg.try_delete()
