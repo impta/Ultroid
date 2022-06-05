@@ -5,13 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 •`{i}addnsfw <ban/mute/kick>`
-   If someone sends 18+ content it will be deleted and action will be taken.
+   اگ کسی ارسالش کنه حذف میشه فرماناجرا میشه.
 
 •`{i}remnsfw`
-   Remove Chat from nsfw filtering.
+   حذف گپ از فیلترینگ.
 """
 
 import os
@@ -32,20 +32,20 @@ from . import HNDLR, async_searcher, eor, events, udB, ultroid_bot, ultroid_cmd
 async def addnsfw(e):
     if not udB.get_key("DEEP_API"):
         return await eor(
-            e, f"Get Api from deepai.org and Add It `{HNDLR}setdb DEEP_API your-api`"
+            e, f"از اینجا ای پی ای رو بگیر deepai.org و اضافش کن `{HNDLR}setdb DEEP_API your-api`"
         )
     action = e.pattern_match.group(1).strip()
     if not action or ("ban" or "kick" or "mute") not in action:
         action = "mute"
     nsfw_chat(e.chat_id, action)
     ultroid_bot.add_handler(nsfw_check, events.NewMessage(incoming=True))
-    await e.eor("Added This Chat To Nsfw Filter")
+    await e.eor("این گپ ب فیلترینگ افزوده شد")
 
 
 @ultroid_cmd(pattern="remnsfw", admins_only=True)
 async def remnsfw(e):
     rem_nsfw(e.chat_id)
-    await e.eor("Removed This Chat from Nsfw Filter.")
+    await e.eor("این گپ از فیلترینگ حذف شد.")
 
 
 NWARN = {}
@@ -94,7 +94,7 @@ async def nsfw_check(e):
                     NWARN.update({e.sender_id: count})
                     return await ultroid_bot.send_message(
                         chat,
-                        f"**NSFW Warn {count}/3** To [{e.sender.first_name}](tg://user?id={e.sender_id})\nDon't Send NSFW stuffs Here Or You will Be Get {action}",
+                        f"**اختار +۱۸ {count}/3** ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n+۱۸ اینجا نفرس وگرنه {action}",
                     )
                 if "mute" in action:
                     try:
@@ -103,12 +103,12 @@ async def nsfw_check(e):
                         )
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**Action Taken** : {action}",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**اتفاقی ک میفته** : {action}",
                         )
                     except BaseException:
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nCan't Able to {action}.",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nنمیشه کردش {action}.",
                         )
                 elif "ban" in action:
                     try:
@@ -117,31 +117,31 @@ async def nsfw_check(e):
                         )
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**Action Taken** : {action}",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**اتفاقی ک میفته** : {action}",
                         )
                     except BaseException:
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nCan't Able to {action}.",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nنمیشه کردش {action}.",
                         )
                 elif "kick" in action:
                     try:
                         await ultroid_bot.kick_participant(chat, e.sender_id)
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**Action Taken** : {action}",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\n**اتفاقی ک میفته** : {action}",
                         )
                     except BaseException:
                         await ultroid_bot.send_message(
                             chat,
-                            f"NSFW Warn 3/3 to [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nCan't Able to {action}.",
+                            f"اختار +۱۸ ۳/۳ ب [{e.sender.first_name}](tg://user?id={e.sender_id})\n\nنمیشه کردش {action}.",
                         )
                 NWARN.pop(e.sender_id)
             else:
                 NWARN.update({e.sender_id: 1})
                 return await ultroid_bot.send_message(
                     chat,
-                    f"**NSFW Warn 1/3** To [{e.sender.first_name}](tg://user?id={e.sender_id})\nDon't Send NSFW stuffs Here Or You will Be Get {action}",
+                    f"**اختار +۱۸ ۱/۳ ب** ب [{e.sender.first_name}](tg://user?id={e.sender_id})\nچیزای +۱۸ نفرس وگرنه {action}",
                 )
 
 
