@@ -5,30 +5,30 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
----- Welcomes ----
+---- خوشومدید ----
 • `{i}setwelcome <message/reply to message>`
-    Set welcome message in the current chat.
+    تنظیم پیام خوشامد گویی در گپ فعلی.
 
 • `{i}clearwelcome`
-    Delete the welcome in the current chat.
+    حذف خوشامد گویی در گپ فعلی.
 
 • `{i}getwelcome`
-    Get the welcome message in the current chat.
+    دریافته پیامه خوشامد گویی در گپ فعلی.
 
----- GoodByes ----
+---- خدافظی ----
 • `{i}setgoodbye <message/reply to message>`
-    Set goodbye message in the current chat.
+    تنظیم پیام خدافظی در گپ فعلی.
 
 • `{i}cleargoodbye`
-    Delete the goodbye in the current chat.
+    حذف خدافظی در گپه فعلی.
 
 • `{i}getgoodbye`
-    Get the goodbye message in the current chat.
+    دریافته خدافظی در گپه فعلی.
 
 • `{i}thankmembers on/off`
-    Send a thank you sticker on hitting a members count of 100*x in your groups.
+    در مورد تعداد اعضای 100*x در گروه های خود یک استیکر تشکر ارسال کنید.
 """
 import os
 
@@ -50,7 +50,7 @@ from telethon.utils import pack_bot_file_id
 from . import HNDLR, eor, get_string, mediainfo, ultroid_cmd
 from ._inline import something
 
-Note = "\n\nNote: `{mention}`, `{group}`, `{count}`, `{name}`, `{fullname}`, `{username}`, `{userid}` can be used as formatting parameters.\n\n"
+Note = "\n\nنکته: `{mention}`, `{group}`, `{count}`, `{name}`, `{fullname}`, `{username}`, `{userid}` قابل استفاده هستن.\n\n"
 
 
 @ultroid_cmd(pattern="setwelcome", groups_only=True)
@@ -114,7 +114,7 @@ async def listwel(event):
     if wel.get("button"):
         btn = create_tl_btn(wel["button"])
         return await something(event, msgg, med, btn)
-    await event.reply(f"**Welcome Note in this chat**\n\n`{msgg}`", file=med)
+    await event.reply(f"**متن خوشامدگویی در این گپ**\n\n`{msgg}`", file=med)
     await event.delete()
 
 
@@ -152,12 +152,12 @@ async def setgb(event):
             add_goodbye(event.chat_id, txt, m, btn)
         else:
             add_goodbye(event.chat_id, None, m, btn)
-        await eor(x, "`Goodbye note saved`")
+        await eor(x, "`متن خدافظی ذخیره شد`")
     elif text:
         if not btn:
             txt, btn = get_msg_button(text)
         add_goodbye(event.chat_id, txt, None, btn)
-        await eor(x, "`Goodbye note saved`")
+        await eor(x, "`متن خدافظی ذخیره شد`")
     else:
         await eor(x, get_string("grt_7"), time=5)
 
@@ -167,7 +167,7 @@ async def clearwgb(event):
     if not get_goodbye(event.chat_id):
         return await event.eor(get_string("grt_6"), time=5)
     delete_goodbye(event.chat_id)
-    await event.eor("`Goodbye Note Deleted`", time=5)
+    await event.eor("`متن خدافظی حذف شد`", time=5)
 
 
 @ultroid_cmd(pattern="getgoodbye$", groups_only=True)
@@ -180,7 +180,7 @@ async def listgd(event):
     if wel.get("button"):
         btn = create_tl_btn(wel["button"])
         return await something(event, msgg, med, btn)
-    await event.reply(f"**Goodbye Note in this chat**\n\n`{msgg}`", file=med)
+    await event.reply(f"**متن خدافظی در این گپ**\n\n`{msgg}`", file=med)
     await event.delete()
 
 
@@ -190,7 +190,7 @@ async def thank_set(event):
     if not type_ or type_ == "":
         await eor(
             event,
-            f"**Current Chat Settings:**\n**Thanking Members:** `{must_thank(event.chat_id)}`\n\nUse `{HNDLR}thankmembers on` or `{HNDLR}thankmembers off` to toggle current settings!",
+            f"**تنظیماته فعلی گپ:**\n**تشکر از اعضا:** `{must_thank(event.chat_id)}`\n\nاستفاده از `{HNDLR}thankmembers on` or `{HNDLR}thankmembers off` برای تنظیمه تنظیمات!",
         )
         return
     chat = event.chat_id
@@ -200,5 +200,5 @@ async def thank_set(event):
         remove_thanks(chat)
     await eor(
         event,
-        f"**Done! Thank you members has been turned** `{type_.lower()}` **for this chat**!",
+        f"**حله! تشکر از اعضا شد** `{type_.lower()}` **برای این گپ**!",
     )
