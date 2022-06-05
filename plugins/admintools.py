@@ -5,41 +5,41 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}promote <reply to user/userid/username>`
+• `{i}promote <ریپلای رو user/userid/username>`
 • `{i}demote`
-    Promote/Demote the user in the chat.
+    ارتقا/تنزل کاربر در چت.
 
-• `{i}ban <reply to user/userid/username> <reason>`
+• `{i}ban <ریپلای رو user/userid/username> <reason>`
 • `{i}unban`
-    Ban/Unban the user from the chat.
+    بن کردن/لغو بن کاربر از چت.
 
-• `{i}kick <reply to user/userid/username> <reason>`
-    Kick the user from the chat.
+• `{i}kick <ریپلای رو user/userid/username> <reason>`
+    بیرون کردنه کاربر از چت.
 
-• `{i}pin <reply to message>`
-    Pin the message in the chat
-• `{i}tpin <time> <temp pin message>`
-• `{i}unpin (all) <reply to message>`
-    Unpin the messages in the chat.
+• `{i}pin <ریپلای رو پیام>`
+    سنجاق کردنه پیام در چت
+• `{i}tpin <time> <سنجاق زمانبندی>`
+• `{i}unpin (all) <ریپلای رو پیام>`
+    لغو سنجاق پیام های چت
 
 • `{i}pinned`
-   Get pinned message in the current chat.
+   دریافت پیام پین شده در چت فعلی.
 • `{i}listpinned`
-   Get all pinned messages in current chat
+   همه پیام های پین شده را در چت فعلی دریافت کنید
 
 • `{i}autodelete <24h/7d/1m/off>`
-   Enable Auto Delete Messages in Chat.
+   فعال کردنه حذف خودکاره پیام ها.
 
-• `{i}purge <reply to message>`
-    Purge all messages from the replied message.
+• `{i}purge <ریپلای رو پیام>`
+    پاکسازی تمام پیام های پیامه ریپلای شده.
 
-• `{i}purgeme <reply to message>`
-    Purge Only your messages from the replied message.
+• `{i}purgeme <ریپلای رو پیام>`
+    فقط پیام های خود را از پیام ریپلای شده پاک کنید.
 
 • `{i}purgeall`
-    Delete all msgs of replied user.
+    پاکسازی تمام پیام های فردی ک روش ریپ زدید.
 """
 
 import asyncio
@@ -200,7 +200,7 @@ async def kck(ult):
     if "kickme" in ult.text:
         return
     if ult.is_private:
-        return await ult.eor("`Use this in Group/Channel.`", time=5)
+        return await ult.eor("`از این، توی گروه یا چنل استفاده کن.`", time=5)
     ml = ult.text.split(" ", maxsplit=1)[0]
     xx = await ult.eor(get_string("com_1"))
     something = await get_uinfo(ult)
@@ -280,15 +280,15 @@ async def pin(msg):
         return await eor(msg, get_string("pin_1"))
     me = await msg.get_reply_message()
     if me.is_private:
-        text = "`Pinned.`"
+        text = "`پین شده`"
     else:
-        text = f"Pinned [This Message]({me.message_link}) !"
+        text = f"پین شده [این پیام]({me.message_link}) !"
     try:
         await msg.client.pin_message(msg.chat_id, me.id, notify=False)
     except BadRequestError:
         return await eor(msg, get_string("adm_2"))
     except Exception as e:
-        return await eor(msg, f"**ERROR:**`{e}`")
+        return await eor(msg, f"**ارور:**`{e}`")
     await eor(msg, text)
 
 
@@ -312,8 +312,8 @@ async def unp(ult):
     except BadRequestError:
         return await xx.edit(get_string("adm_2"))
     except Exception as e:
-        return await xx.edit(f"**ERROR:**`{e}`")
-    await xx.edit("`Unpinned!`")
+        return await xx.edit(f"**ارور:**`{e}`")
+    await xx.edit("`لغو پین شد!`")
 
 
 @ultroid_cmd(
@@ -326,9 +326,9 @@ async def unp(ult):
 async def pin_message(ult):
     match = ult.pattern_match.group(1).strip()
     if not ult.is_reply:
-        return await ult.eor("`Reply to message..`", time=6)
+        return await ult.eor("`ریپلای کن رو ی پیام..`", time=6)
     if not match:
-        return await ult.eor("`Please provide time..`", time=8)
+        return await ult.eor("`لطفا یه تایمی رو وارد کن..`", time=8)
     msg = await ult.eor(get_string("com_1"))
     time = ban_time(msg, match)
     if not time:
@@ -336,7 +336,7 @@ async def pin_message(ult):
     msg_id = ult.reply_to_msg_id
     try:
         await ult.client.pin_message(ult.chat_id, msg_id)
-        await msg.eor(f"`pinned for time` `{time}`", time=8)
+        await msg.eor(f"`پین شده در تایم` `{time}`", time=8)
     except Exception as er:
         return await msg.edit(str(er))
     await asyncio.sleep(time)
@@ -367,7 +367,7 @@ async def fastpurger(purg):
         ):
             await msg.delete()
             p += 0
-        return await eor(purg, f"Purged {p} Messages! ", time=5)
+        return await eor(purg, f"پاکسازی {p} پیام ها! ", time=5)
     if not purg.reply_to_msg_id:
         return await eor(purg, get_string("purge_1"), time=10)
     try:
@@ -378,7 +378,7 @@ async def fastpurger(purg):
     except Exception as er:
         LOGS.info(er)
     await purg.respond(
-        "__Fast purge complete!__",
+        "__پاکسازی سرعتی، ب اتمام رسید!__",
     )
 
 
@@ -399,7 +399,7 @@ async def fastpurgerme(purg):
         ):
             await mm.delete()
             mp += 1
-        await eor(purg, f"Purged {mp} Messages!", time=5)
+        await eor(purg, f"پاکسازی {mp} پیام ها!", time=5)
         return
     chat = await purg.get_input_chat()
     msgs = []
@@ -407,7 +407,7 @@ async def fastpurgerme(purg):
     if not (purg.reply_to_msg_id or num):
         return await eod(
             purg,
-            "`Reply to a message to purge from or use it like ``purgeme <num>`",
+            "`رو پیامی ک میخواید پاکسازی ازش شروع بشه ریپلای بزنید ``purgeme <num>`",
             time=10,
         )
     async for msg in purg.client.iter_messages(
@@ -426,7 +426,7 @@ async def fastpurgerme(purg):
         await purg.client.delete_messages(chat, msgs)
     await eod(
         purg,
-        "__Fast purge complete!__\n**Purged** `" + str(count) + "` **messages.**",
+        "__پاکسازی سرعتی، ب اتمام رسید!__\n**پاکسازی شدن** `" + str(count) + "` **پیام ها.**",
     )
 
 
@@ -482,14 +482,14 @@ async def get_all_pinned(event):
             t = " ".join(i.message.split()[:4])
             txt = "{}....".format(t)
         else:
-            txt = "Go to message."
+            txt = "برو ب پیام"
         a += f"{c}. <a href=https://t.me/c/{chat_id}/{i.id}>{txt}</a>\n"
         c += 1
 
     if c == 1:
-        m = f"<b>The pinned message in {chat_name}:</b>\n\n"
+        m = f"<b>پیام پین شده در {chat_name}:</b>\n\n"
     else:
-        m = f"<b>List of pinned message(s) in {chat_name}:</b>\n\n"
+        m = f"<b>لیست پیام های پین شده(s) در {chat_name}:</b>\n\n"
 
     if a == "":
         return await eor(x, get_string("listpin_1"), time=5)
@@ -504,7 +504,7 @@ async def get_all_pinned(event):
 async def autodelte(ult):
     match = ult.pattern_match.group(1).strip()
     if not match or match not in ["24h", "7d", "1m", "off"]:
-        return await ult.eor("`Please Use in Proper Format..`", time=5)
+        return await ult.eor("`لطفا در قالب مناسب استفاده کنید..`", time=5)
     if match == "24h":
         tt = 3600 * 24
     elif match == "7d":
@@ -517,6 +517,6 @@ async def autodelte(ult):
         await ult.client(SetHistoryTTLRequest(ult.chat_id, period=tt))
     except ChatNotModifiedError:
         return await eor(
-            ult, f"Auto Delete Setting is Already same to `{match}`", time=5
+            ult, f"تنظیمات حذف خودکار از قبل یکسان است `{match}`", time=5
         )
-    await ult.eor(f"Auto Delete Status Changed to `{match}` !")
+    await ult.eor(f"وضعیت حذف خودکار تغییر کرد ب `{match}` !")
