@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}carbon <text/reply to msg/reply to document>`
-    Carbonise the text with default settings.
+    متن را با تنظیمات پیش فرض کربن کنید.
 
 • `{i}rcarbon <text/reply to msg/reply to document>`
-    Carbonise the text, with random bg colours.
+    متن را با رنگ های تصادفی بک گراند کربن کنید.
 
 • `{i}ccarbon <color ><text/reply to msg/reply to document>`
-    Carbonise the text, with custom bg colours.
+    متن را با رنگ های بک گراند دلخواه کربن کنید.
 """
 import random
 
@@ -196,7 +196,7 @@ async def crbn(event):
     xx = await Carbon(code=code, file_name="ultroid_carbon", backgroundColor=col)
     await xxxx.delete()
     await event.reply(
-        f"Carbonised by {inline_mention(event.sender)}",
+        f"کربن شده توسط {inline_mention(event.sender)}",
         file=xx,
     )
 
@@ -228,6 +228,6 @@ async def crbn(event):
     xx = await Carbon(code=code, backgroundColor=match)
     await msg.delete()
     await event.reply(
-        f"Carbonised by {inline_mention(event.sender)}",
+        f"کربن شده توسط {inline_mention(event.sender)}",
         file=xx,
     )
