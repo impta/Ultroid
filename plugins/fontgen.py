@@ -6,10 +6,10 @@
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 • `{i}font <font name> : <text>`
-    Generate different fonts for the text.
+    ساخت فونت دیگه ای برای متن.
 
 • `{i}font`
-    To get list of fonts
+    برای گرفتنه لیسته فونت ها
 """
 
 
@@ -31,7 +31,7 @@ async def _(e):
     reply = await e.get_reply_message()
     help = __doc__.format(i=HNDLR)
     if not input:
-        m = "**Available Fonts**\n\n"
+        m = "**فونت های دردسترس**\n\n"
         for x in fonts:
             m += f"• `{x}`\n"
         return await e.eor(m, time=5)
@@ -43,12 +43,12 @@ async def _(e):
         except IndexError:
             return await eod(e, help)
     elif not input:
-        return await eod(e, "`Give font dude :/`")
+        return await eod(e, "`رفیق فونت بده :/`")
     else:
         font = input
         text = reply.message
     if font not in fonts:
-        return await e.eor(f"`{font} not in font list`.", time=5)
+        return await e.eor(f"`{font} توی لیست فونت ها نیس`.", time=5)
     if font == "small caps":
         msg = gen_font(text, _small_caps)
     elif font == "monospace":
