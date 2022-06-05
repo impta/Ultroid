@@ -5,13 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}afk <optional reason>`
-    AFK means away from keyboard,
-    After this is activated, if someone tags or messages you, he/she would get an automated reply from the bot.
+• `{i}afk <علته اختیاری>`
+    AFK به این معنیه ک، طرف الکی انلاینه,
+    پس از فعال شدن این مورد، اگر شخصی شما را تگ یا پیامی ارسال کند، یک پاسخ خودکار از ربات دریافت می کند..
 
-    (Note : Set a media file in afk messages by replying to any media with `{i}afk <reason>`).
+    (نکته : با ریپلای به هر رسانه ای، یک فایل رسانه ای را در پیام های afk تنظیم کنید `{i}afk <علت>`).
 
 """
 
@@ -56,7 +56,7 @@ async def set_afk(event):
                 media = f"https://telegra.ph{iurl[0]}"
             else:
                 media = reply.file.id
-    await event.eor("`Done`", time=2)
+    await event.eor("`حله`", time=2)
     add_afk(text, media_type, media)
     ultroid_bot.add_handler(remove_afk, events.NewMessage(outgoing=True))
     ultroid_bot.add_handler(
