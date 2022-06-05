@@ -3,7 +3,7 @@ import random
 from . import *
 from collections import deque
 
-DEFAULTUSER = "ULTROID"
+DEFAULTUSER = "ElenLiL"
 
 M = ("___________ \n"
 "　　　　　| \n"
