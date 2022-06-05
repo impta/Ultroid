@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 •`{i}addclean`
-    Clean all Upcoming action msg in added chat like someone joined/left/pin etc.
+    حذف تمام پیام های سیستمی .
 
 •`{i}remclean`
-    Remove chat from database.
+    حذف گپ از پایگاه داده.
 
 •`{i}listclean`
-   To get list of all chats where its activated.
+   برای دریافت لیست تمام چت هایی که در آن فعال شده است.
 
 """
 
