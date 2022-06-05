@@ -5,28 +5,28 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}instadl <Instagram Url>`
-  `Download Instagram Media...`
+  `دانلود از اینستاگرام...`
 
 • `{i}instadata <username>`
-  `Get Instagram Data of someone or self`
+  `دریافت اطلاعات اینستاگرامه شخص`
 
 • `{i}instaul <reply video/photo> <caption>`
-  `Upload Media to Instagram...`
+  `اپلود به اینستاگرام...`
 
 • `{i}igtv <reply video> <caption>`
-  `Upload Media to Igtv...`
+  `اپلود ب ای جی تی وی...`
 
 • `{i}reels <reply video> <caption>`
-  `Upload Media to Instagram reels...`
+  `اپلود ب ریلز اینستاگرام...`
 
-• Go Inline with Your Assistant with query `instatm`
-   To get home page's posts...
+• اینلاین با `instatm`
+   برای دریافت پست های صفحه اصلی...
 
-• Fill `INSTA_USERNAME` and `INSTA_PASSWORD`
-  before using it..
+• پر کن `INSTA_USERNAME` و `INSTA_PASSWORD`
+  قبل از استفاده..
 """
 
 import os
