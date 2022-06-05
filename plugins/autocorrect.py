@@ -5,10 +5,10 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available
+✘ فرمان های دردسترس
 
 • `{i}autocorrect`
-    To on/off Autocorrect Feature.
+    برای on/off ویژگی تصحیح خودکار.
 """
 
 import string
@@ -18,7 +18,7 @@ from . import HNDLR, LOGS, get_string, udB, ultroid_bot, ultroid_cmd  # ignore: 
 try:
     from gingerit.gingerit import GingerIt
 except ImportError:
-    LOGS.info("GingerIt not found")
+    LOGS.info("زنجبیل پیدا نشد")
     GingerIt = None
 
 from google_trans_new import google_translator
