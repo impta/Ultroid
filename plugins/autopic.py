@@ -5,12 +5,12 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-• `{i}autopic <search query>`
-    Will change your profile pic at defined intervals with pics related to the given topic.
+• `{i}autopic <جستجو>`
+    عکس پروفایل شما را در فواصل زمانی مشخص با عکس های مربوط به موضوع داده شده تغییر می دهد.
 
-• `{i}autopic` : stop autopic if active.
+• `{i}autopic` : غیرفعال کردنه اوتو پیک، درصورته فعال بودن.
 """
 import asyncio
 import os
@@ -99,4 +99,4 @@ if search := udB.get_key("AUTOPIC"):
         schedule.add_job(autopic_func, "interval", seconds=sleep)
         schedule.start()
     except ModuleNotFoundError as er:
-        LOGS.error(f"autopic: '{er.name}' not installed.")
+        LOGS.error(f"autopic: '{er.name}' نصب نیست.")
