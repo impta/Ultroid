@@ -5,16 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
-•`{i}addcmd <new cmd> <reply>`
-   It will set new cmd for your assistant bot with that reply message.
+•`{i}addcmd <فرمان جدید> <ریپلای>`
+    فرمان جدیدی را برای ربات دستیار شما تنظیم می کند با پیام ریپلای شده.
 
-•`{i}remcmd <cmd name>`
-   It will remove your cmd.
+•`{i}remcmd <نام فرمان>`
+   این فرمان شما را حذف میکند.
 
 •`{i}listcmd`
-   To Get list of all your custom cmd.
+   برای گرفتن لیسته تمام فرمان های شخصی سازی شده.
 """
 import os
 
