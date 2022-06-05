@@ -91,7 +91,7 @@ async def DummyHandler(ult):
                     )
                     await ult.client.send_message(
                         chat.id,
-                        "**@UltroidBans:** Banned user detected and banned!\n`{}`.\nBan reason: {}".format(
+                        "**@ElenLiL:** کاربران ممنوعه شناسایی و ممنوع شده!\n`{}`.\nعلته بن: {}".format(
                             str(is_banned),
                             is_banned["reason"],
                         ),
