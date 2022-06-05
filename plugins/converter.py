@@ -5,22 +5,22 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}convert <gif/img/sticker/webm>`
-    Reply to media to convert it into gif / image / webm / normal sticker.
+    ریپلای کن رو ی مدیا تا تبدیلش کنی ب gif / image / webm / normal sticker.
 
 • `{i}doc <filename.ext>`
-    Reply to a text msg to save it in a file.
+    ریپلای بزن رو ی پیام تا تبدیلش کنی به ی فایل.
 
 • `{i}open`
-    Reply to a file to reveal it's text.
+    ریپلای بزن رو فایل تا تبدیلش کنی ب پیام.
 
 • `{i}rename <file name with extension>`
-    Rename the file
+    تغییر نام فایل
 
 • `{i}thumbnail <reply to image/thumbnail file>`
-    Upload Your file with your custom thumbnail.
+    آپلود کردن فایل با تصویر تامبنیل دلخواه.
 """
 import os
 import time
@@ -35,7 +35,7 @@ except ImportError:
 try:
     from PIL import Image
 except ImportError:
-    LOGS.info(f"{__file__}: PIL  not Installed.")
+    LOGS.info(f"{__file__}: PIL  نصب نیس.")
     Image = None
 
 from telegraph import upload_file as uf
@@ -55,7 +55,7 @@ async def _(e):
     elif r.document and r.document.thumbs:
         dl = await r.download_media(thumb=-1)
     else:
-        return await e.eor("`Reply to Photo or media with thumb...`")
+        return await e.eor("`روی مدیا همراه با تامب ریپلای کن...`")
     variable = uf(dl)
     os.remove(dl)
     nn = "https://telegra.ph" + variable[0]
@@ -155,7 +155,7 @@ async def _(event):
         return await xx.edit(get_string("ex_1"))
     with open(input_str, "w") as b:
         b.write(str(a.message))
-    await xx.edit(f"**Packing into** `{input_str}`")
+    await xx.edit(f"**پک کردن در** `{input_str}`")
     await event.reply(file=input_str, thumb="resources/extras/ultroid.jpg")
     await xx.delete()
     os.remove(input_str)
@@ -184,7 +184,7 @@ async def _(event):
     except BaseException:
         what, key = await get_paste(d)
         await xx.edit(
-            f"**MESSAGE EXCEEDS TELEGRAM LIMITS**\n\nSo Pasted It On [SPACEBIN](https://spaceb.in/{key})"
+            f"**پیام رسید ب حدالنصاب محدودیت تلگرام**\n\nپس اینجا پستش میکنم [SPACEBIN](https://spaceb.in/{key})"
         )
     if rem:
         os.remove(b)
