@@ -143,7 +143,7 @@ async def _(event):
     except Exception as e:
         print(f"Error in removing FedAdmin file.\n{e}")
     await msg.edit(
-        f"SuperFBan Completed.\nTotal Feds - {len(fedList)}.\nExcluded - {exCount}.\nAffected {len(fedList) - exCount} feds.\n#Ultroid",
+        f"SuperFBan Completed.\nTotal Feds - {len(fedList)}.\nExcluded - {exCount}.\nAffected {len(fedList) - exCount} feds.\n#ElenLiL",
     )
 
 
@@ -317,7 +317,7 @@ async def _(event):
                     await event.client.send_file(
                         event.chat_id,
                         audio,
-                        caption=f"List of feds {user} has been banned in.\n\nCollected using Ultroid.",
+                        caption=f"List of feds {user} has been banned in.\n\nCollected using ElenLiL.",
                         link_preview=False,
                     )
                     await ok.delete()
@@ -342,6 +342,6 @@ async def _(event):
             await conv.send_message("/fedinfo " + sysarg)
             audio = await conv.get_response()
             await event.client.send_read_acknowledge(bot)
-            await ok.edit(audio.text + "\n\nFedInfo Extracted by Ultroid")
+            await ok.edit(audio.text + "\n\nFedInfo Extracted by ElenLiL")
         except YouBlockedUserError:
             await ok.edit("**Error**\n `Unblock` @MissRose_Bot `and try again!")
