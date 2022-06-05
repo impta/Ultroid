@@ -5,34 +5,34 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}delchat <optional- username/id>`
-    Delete the group this cmd is used in.
+    گروهی که این فرمان در آن استفاده می شود را حذف کنید.
 
 • `{i}getlink`
-• `{i}getlink r` - `create link with admin approval`
-• `{i}getlink r title_here` - `admin approval with link title`
-• `{i}getlink 10` - `usage limit in new link`
-    Get link of group this cmd is used in.
+• `{i}getlink r` - `ایجاد لینک با تایید ادمین`
+• `{i}getlink r title_here` - `تایید ادمین با عنوان لینک`
+• `{i}getlink 10` - `محدود کردنه دفعات استفاده از اینک`
+    دریافت لینک گروهی که این فرمان در آن استفاده می شود.
 
 • `{i}create (g|b|c) <group_name> ; <optional-username>`
-    Create group woth a specific name.
-    g - megagroup/supergroup
-    b - small group
-    c - channel
+    ایجاد گروه با یک نام خاص
+    g - سوپرگروه/مگاگروه
+    b - گروه کوچیک
+    c - چنل
 
 • `{i}setgpic <reply to Photo><chat username>`
-    Set Profile photo of Group.
+    عکس پروفایل گروه را تنظیم کنید.
 
 • `{i}delgpic <chat username -optional>`
-    Delete Profile photo of Group.
+    حذف عکس پروفایل گروه.
 
 • `{i}unbanall`
-    Unban all Members of a group.
+    لغو بن همه ی ممبر های گروه.
 
 • `{i}rmusers`
-    Remove users specifically.
+    حذف کاربر مشخص.
 """
 
 from telethon.errors import ChatAdminRequiredError as no_admin
@@ -97,12 +97,12 @@ async def _(e):
     else:
         chat = await e.get_chat()
     if hasattr(chat, "username") and chat.username:
-        return await e.eor(f"Username: @{chat.username}")
+        return await e.eor(f"یوزرنیم: @{chat.username}")
     request, usage, title = None, None, None
     if match:
         split = match.split(maxsplit=1)
         request = bool(split[0] in ["r", "request"])
-        title = "Created by Ultroid"
+        title = "ساخته شده توسط النلیل"
         if len(split) > 1:
             match = split[1]
             spli = match.split(maxsplit=1)
@@ -141,8 +141,8 @@ async def _(e):
         if Inv and not Inv.revoked:
             link = Inv.link
     if link:
-        return await e.eor(f"Link:- {link}")
-    await e.eor("`Failed to getlink!\nSeems like link is inaccessible to you...`")
+        return await e.eor(f"لینک:- {link}")
+    await e.eor("`دریافت لینک ناموفق بود!\nبه نظر می رسد لینک برای شما غیر قابل دسترسی است...`")
 
 
 @ultroid_cmd(
@@ -215,7 +215,7 @@ async def _(e):
 )
 async def _(ult):
     if not ult.is_reply:
-        return await ult.eor("`Reply to a Media..`", time=5)
+        return await ult.eor("`رو ی مدیا ریپلای کن..`", time=5)
     match = ult.pattern_match.group(1).strip()
     if not ult.client._bot and match:
         try:
@@ -230,7 +230,7 @@ async def _(ult):
     elif reply.document and reply.document.thumbs:
         replfile = await reply.download_media(thumb=-1)
     else:
-        return await ult.eor("Reply to a Photo or Video..")
+        return await ult.eor("روی ی عکس یا فیلم ریپلای کن..")
     mediain = mediainfo(reply.media)
     if "animated" in mediain:
         replfile = await con.convert(replfile, convert_to="mp4")
@@ -243,9 +243,9 @@ async def _(ult):
         if "pic" not in mediain:
             file = types.InputChatUploadedPhoto(video=file)
         await ult.client(EditPhotoRequest(chat, file))
-        await ult.eor("`Group Photo has Successfully Changed !`", time=5)
+        await ult.eor("`تصویر گروه با موفقیت عوض شد !`", time=5)
     except Exception as ex:
-        await ult.eor("Error occured.\n`{}`".format(str(ex)), time=5)
+        await ult.eor("خطا رخ داد.\n`{}`".format(str(ex)), time=5)
     os.remove(replfile)
 
 
@@ -259,7 +259,7 @@ async def _(ult):
         chat = match
     try:
         await ult.client(EditPhotoRequest(chat, types.InputChatPhotoEmpty()))
-        text = "`Removed Chat Photo..`"
+        text = "`تصویر گروه پاک شد..`"
     except Exception as E:
         text = str(E)
     return await ult.eor(text, time=5)
@@ -267,7 +267,7 @@ async def _(ult):
 
 @ultroid_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")
 async def _(event):
-    xx = await event.eor("Searching Participant Lists.")
+    xx = await event.eor("جستجو در لیست اعضا.")
     p = 0
     title = (await event.get_chat()).title
     async for i in event.client.iter_participants(
@@ -282,7 +282,7 @@ async def _(event):
             pass
         except BaseException as er:
             LOGS.exception(er)
-    await xx.eor(f"{title}: {p} unbanned", time=5)
+    await xx.eor(f"{title}: {p} لغو بن شد", time=5)
 
 
 @ultroid_cmd(
@@ -379,16 +379,16 @@ async def _(event):
             else:
                 n += 1
     if input_str:
-        required_string = f"**>> Kicked** `{c} / {p}` **users**\n\n"
+        required_string = f"**>> کیک شد** `{c} / {p}` **اعضا**\n\n"
     else:
-        required_string = f"**>> Total** `{p}` **users**\n\n"
-    required_string += f"  `{HNDLR}rmusers deleted`  **••**  `{d}`\n"
-    required_string += f"  `{HNDLR}rmusers empty`  **••**  `{y}`\n"
-    required_string += f"  `{HNDLR}rmusers month`  **••**  `{m}`\n"
-    required_string += f"  `{HNDLR}rmusers week`  **••**  `{w}`\n"
-    required_string += f"  `{HNDLR}rmusers offline`  **••**  `{o}`\n"
-    required_string += f"  `{HNDLR}rmusers online`  **••**  `{q}`\n"
-    required_string += f"  `{HNDLR}rmusers recently`  **••**  `{r}`\n"
-    required_string += f"  `{HNDLR}rmusers bot`  **••**  `{b}`\n"
-    required_string += f"  `{HNDLR}rmusers none`  **••**  `{n}`"
+        required_string = f"**>> تمام** `{p}` **اعضا**\n\n"
+    required_string += f"  `{HNDLR}پاک کردن اعضای پاک شده`  **••**  `{d}`\n"
+    required_string += f"  `{HNDLR}پاک کننده ی اعضا خالیه`  **••**  `{y}`\n"
+    required_string += f"  `{HNDLR}ماه پاک کننده ی اعضا`  **••**  `{m}`\n"
+    required_string += f"  `{HNDLR}هفته ی پاک کننده ی اعضا`  **••**  `{w}`\n"
+    required_string += f"  `{HNDLR}پاک کننده ی اعضا افلاین`  **••**  `{o}`\n"
+    required_string += f"  `{HNDLR}پاک کننده ی اعضا انلاین`  **••**  `{q}`\n"
+    required_string += f"  `{HNDLR}اعضای پاک شده ی اخیر`  **••**  `{r}`\n"
+    required_string += f"  `{HNDLR}پاک کردن ربات ها`  **••**  `{b}`\n"
+    required_string += f"  `{HNDLR}پاک کردن اعضا`  **••**  `{n}`"
     await xx.eor(required_string)
