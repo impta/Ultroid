@@ -64,16 +64,16 @@ NOSPAM_CHAT = [
 ]
 
 KANGING_STR = [
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
-    "Inviting this sticker over to my pack...",
-    "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "Hehe me stel ur stiker...",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pack looks cool",
-    "Imprisoning this sticker...",
-    "Mr.Steal-Your-Sticker is stealing this sticker... ",
+    "استفاده از Witchery برای چسباندن این استیکر...",
+    "سرقت ادبی هه...",
+    "اضافه کردنه این استیکر به پکه من ...",
+    "چسباندن این استیکر...",
+    "هی این استیکره جذابیه\nحواست باشه اسکی نرم!؟",
+    "هه استیکرتو دزدیدم..",
+    "اینجارو باش (☉｡☉)!→\nقیافت اینجوری میشه وقتی استیکرتو بدزدم",
+    "بلا بلا بلا، با اضافه کردنه این استیکر، پکم خفن میشه",
+    "زندونی کردنه این استیکر...",
+    "من درحاله دزدیدنه این استیکر... ",
 ]
 
 ATRA_COL = [
