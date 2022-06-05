@@ -8,19 +8,19 @@
 ✘ Commands Available
 
 • `{i}addch <id/reply to list/none>`
-    Add chat to database. Adds current chat if no id specified.
+    اضافه کردن چت به پایگاه داده  اگر شناسه مشخص نشده باشد، چت فعلی را اضافه می کند.
 
 • `{i}remch <all/id/none>`
-    Removes the specified chat (current chat if none specified), or all chats.
+    چت مشخص شده را حذف می کند (چت فعلی اگر مشخص نشده باشد)، همه چت ها را پاک میکند.
 
 • `{i}broadcast <reply to msg>`
-    Send the replied message to all chats in database.
+    پیام ریپلای شده را به تمام چت های پایگاه داده ارسال کنید.
 
 • `{i}forward <reply to msg>`
-     Forward the message to all chats in database.
+     پیام را به تمام چت های موجود در پایگاه داده فوروارد کنید.
 
 • `{i}listchannels`
-    To get list of all added chats.
+    برای دریافت لیست تمام چت های اضافه شده.
 """
 import asyncio
 import io
@@ -98,7 +98,7 @@ async def broadcast_remover(event):
     if chat_id == "all":
         await x.edit(get_string("bd_8"))
         udB.del_key("BROADCAST")
-        await x.edit("Database cleared.")
+        await x.edit("پایگاه داده، پاکسازی شد.")
         return
     if is_channel_added(chat_id):
         rem_channel(chat_id)
@@ -117,8 +117,8 @@ async def list_all(event):
     channels = get_channels()
     num = len(channels)
     if not channels:
-        return await eor(x, "No chats were added.", time=5)
-    msg = "Channels in database:\n"
+        return await eor(x, "هیچ چتی اضافه نشد.", time=5)
+    msg = "چنل های پایگاه داده:\n"
     for channel in channels:
         name = ""
         try:
@@ -126,13 +126,13 @@ async def list_all(event):
         except ValueError:
             name = ""
         msg += f"=> **{name}** [`{channel}`]\n"
-    msg += f"\nTotal {num} channels."
+    msg += f"\nتعداد {num} چنل."
     if len(msg) > 4096:
         MSG = msg.replace("*", "").replace("`", "")
         with io.BytesIO(str.encode(MSG)) as out_file:
             out_file.name = "channels.txt"
             await event.reply(
-                "Channels in Database",
+                "چنل های پایگاه داده",
                 file=out_file,
                 force_document=True,
                 allow_cache=False,
@@ -151,9 +151,9 @@ async def forw(event):
         return await event.eor(get_string("ex_1"))
     ultroid_bot = event.client
     channels = get_channels()
-    x = await event.eor("Sending...")
+    x = await event.eor("ارسال...")
     if not channels:
-        return await x.edit(f"Please add channels by using `{HNDLR}add` in them.")
+        return await x.edit(f"لطفن چنل ها را با استفاده از `{HNDLR}add` اضافه کنید.")
     error_count = 0
     sent_count = 0
     if event.reply_to_msg_id:
@@ -164,24 +164,24 @@ async def forw(event):
             await ultroid_bot.forward_messages(channel, previous_message)
             sent_count += 1
             await x.edit(
-                f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
+                f"ارسال شده : {sent_count}\nارور : {error_count}\nهمه : {len(channels)}",
             )
         except Exception:
             try:
                 await ultroid_bot.send_message(
                     int(udB.get_key("LOG_CHANNEL")),
-                    f"Error in sending at {channel}.",
+                    f"ارور در ارسال در {channel}.",
                 )
             except Exception as Em:
                 LOGS.info(Em)
             error_count += 1
             await x.edit(
-                f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
+                f"ارسال شده : {sent_count}\nارور : {error_count}\nهمه : {len(channels)}",
             )
-    await x.edit(f"{sent_count} messages sent with {error_count} errors.")
+    await x.edit(f"{sent_count} پیام ارسال شد با {error_count} ارور ها.")
     if error_count > 0:
         await ultroid_bot.send_message(
-            int(udB.get_key("LOG_CHANNEL")), f"{error_count} Errors"
+            int(udB.get_key("LOG_CHANNEL")), f"{error_count} ارور ها"
         )
 
 
@@ -195,12 +195,12 @@ async def sending(event):
         return await x.edit(get_string("ex_1"))
     channels = get_channels()
     if not channels:
-        return await x.edit(f"Please add channels by using `{HNDLR}add` in them.")
+        return await x.edit(f"لطفن چنل را با استفاده از `{HNDLR}add` اضافه کنید.")
     await x.edit("Sending....")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         if previous_message.poll:
-            return await x.edit(f"Reply `{HNDLR}forward` for polls.")
+            return await x.edit(f"ریپلای `{HNDLR}فوروارد` برای نظرسنجی ها.")
         if previous_message:
             error_count = 0
             sent_count = 0
@@ -209,21 +209,21 @@ async def sending(event):
                     await ultroid_bot.send_message(channel, previous_message)
                     sent_count += 1
                     await x.edit(
-                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
+                        f"ارسال شده : {sent_count}\nارور : {error_count}\nهمه : {len(channels)}",
                     )
                 except Exception as error:
 
                     await ultroid_bot.send_message(
                         udB.get_key("LOG_CHANNEL"),
-                        f"Error in sending at {channel}.\n\n{error}",
+                        f"ارور در ارسال در {channel}.\n\n{error}",
                     )
                     error_count += 1
                     await x.edit(
-                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}",
+                        f"ارسال شده : {sent_count}\nارور : {error_count}\nهمه : {len(channels)}",
                     )
-            await x.edit(f"{sent_count} messages sent with {error_count} errors.")
+            await x.edit(f"{sent_count} پیام ارسال شده با {error_count} ارور ها.")
             if error_count > 0:
                 await ultroid_bot.send_message(
                     int(udB.get_key("LOG_CHANNEL")),
-                    f"{error_count} Errors",
+                    f"{error_count} ارور ها",
                 )
