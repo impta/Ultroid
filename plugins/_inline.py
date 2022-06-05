@@ -43,8 +43,8 @@ upage = 0
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://t.me/ElenLiL"),
-        Button.url("• Support •", url="t.me/ElenLiL"),
+        Button.url("• Creator •", url="https://t.me/ElenLiL"),
+        Button.url("• Portal •", url="t.me/ElenLiLBoT"),
     ],
 ]
 
@@ -55,7 +55,7 @@ SUP_BUTTONS = [
 async def inline_alive(o):
     MSG = "• **ElenLiL Userbot •**"
     WEB0 = InputWebDocument(
-        "https://telegra.ph/file/acd4f5d61369f74c5e7a7.jpg", 0, "image/jpg", []
+        "https://telegra.ph/file/0cc0d78edd99ee816b992.jpg", 0, "image/jpg", []
     )
     RES = [
         await o.builder.article(
@@ -138,14 +138,14 @@ async def setting(event):
         link_preview=False,
         buttons=[
             [
-                Button.inline("•Pɪɴɢ•", data="pkng"),
-                Button.inline("•Uᴘᴛɪᴍᴇ•", data="upp"),
+                Button.inline("•پینگ•", data="pkng"),
+                Button.inline("•آپتایم•", data="upp"),
             ],
             [
-                Button.inline("•Stats•", data="alive"),
-                Button.inline("•Uᴘᴅᴀᴛᴇ•", data="doupdate"),
+                Button.inline("•آمار•", data="alive"),
+                Button.inline("•آپدیت•", data="doupdate"),
             ],
-            [Button.inline("« Bᴀᴄᴋ", data="open")],
+            [Button.inline("« بازگشت", data="open")],
         ],
     )
 
@@ -176,7 +176,7 @@ async def uptd_plugin(event):
     if "|" in file:
         file, index = file.split("|")
     key_ = HELP.get(key, [])
-    hel_p = f"Plugin Name - `{file}`\n"
+    hel_p = f"اسم افزونه - `{file}`\n"
     help_ = ""
     try:
         for i in key_[file]:
@@ -188,7 +188,7 @@ async def uptd_plugin(event):
                 help_ += HNDLR + d
                 help_ += "\n"
     if not help_:
-        help_ = f"{file} has no Detailed Help!"
+        help_ = f"{file} هیچ راهنمایی نداره!"
     help_ += "\n© @ElenLiL"
     buttons = []
     if INLINE_PIC:
@@ -198,7 +198,7 @@ async def uptd_plugin(event):
         buttons.append(
             [
                 Button.inline(
-                    "« Sᴇɴᴅ Pʟᴜɢɪɴ »",
+                    "« ارسال افزونه »",
                     data=data,
                 )
             ]
@@ -208,14 +208,14 @@ async def uptd_plugin(event):
         data += f"|{index}"
     buttons.append(
         [
-            Button.inline("« Bᴀᴄᴋ", data=data),
+            Button.inline("« بازگشت", data=data),
         ]
     )
     try:
         await event.edit(help_, buttons=buttons)
     except Exception as er:
         LOGS.exception(er)
-        help = f"Do `{HNDLR}help {key}` to get list of commands."
+        help = f"انجامش بده `{HNDLR}راهنما {key}` برای دریافت لیست فرمان ها"
         await event.edit(help, buttons=buttons)
 
 
@@ -238,8 +238,8 @@ async def _(event):
             get_string("upd_5"),
             file="ultroid_updates.txt",
             buttons=[
-                [Button.inline("• Uᴘᴅᴀᴛᴇ Nᴏᴡ •", data="updatenow")],
-                [Button.inline("« Bᴀᴄᴋ", data="ownr")],
+                [Button.inline("• بروز رسانی •", data="updatenow")],
+                [Button.inline("« بازگشت", data="ownr")],
             ],
         )
         remove("ultroid_updates.txt")
@@ -247,8 +247,8 @@ async def _(event):
         await event.edit(
             changelog_str,
             buttons=[
-                [Button.inline("Update Now", data="updatenow")],
-                [Button.inline("« Bᴀᴄᴋ", data="ownr")],
+                [Button.inline("بروز رسانی", data="updatenow")],
+                [Button.inline("« بازگشت", data="ownr")],
             ],
             parse_mode="html",
         )
@@ -259,14 +259,14 @@ async def _(event):
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds
-    pin = f"🌋Pɪɴɢ = {ms} microseconds"
+    pin = f"🌋پینگ = {ms} میکرو ثانیه"
     await event.answer(pin, cache_time=0, alert=True)
 
 
 @callback(data="upp", owner=True)
 async def _(event):
     uptime = time_formatter((time.time() - start_time) * 1000)
-    pin = f"🙋Uᴘᴛɪᴍᴇ = {uptime}"
+    pin = f"🙋آپتایم = {uptime}"
     await event.answer(pin, cache_time=0, alert=True)
 
 
@@ -275,74 +275,74 @@ async def _(e):
     button = [
         [
             Button.switch_inline(
-                "Pʟᴀʏ Sᴛᴏʀᴇ Aᴘᴘs",
+                "برنامه های پلی استور",
                 query="app telegram",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "Mᴏᴅᴅᴇᴅ Aᴘᴘs",
+                "برنامه های مود شده",
                 query="mods minecraft",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ",
+                "جستجو در گوگل",
                 query="go ElenLiL",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "Search on XDA",
+                "جستجو در اکس دی اِی",
                 query="xda telegram",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "WʜɪSᴘᴇʀ",
-                query="wspr @username Hello🎉",
+                "نجوا",
+                query="wspr @username سلام🎉",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "YᴏᴜTᴜʙᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ",
+                "یوتوب دانلودر",
                 query="yt Ed Sheeran Perfect",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "Piston Eval",
+                "پیستون ایوال",
                 query="run javascript console.log('Hello ElenLiL')",
                 same_peer=True,
             ),
             Button.switch_inline(
-                "OʀᴀɴɢᴇFᴏx🦊",
+                "روباه نارنجی🦊",
                 query="ofox beryllium",
                 same_peer=True,
             ),
         ],
         [
             Button.switch_inline(
-                "Tᴡɪᴛᴛᴇʀ Usᴇʀ", query="twitter theultroid", same_peer=True
+                "کاربر توییتر", query="twitter ElenLiL", same_peer=True
             ),
             Button.switch_inline(
-                "Kᴏᴏ Sᴇᴀʀᴄʜ", query="koo @__kumar__amit", same_peer=True
+                "جستجوی کو", query="koo @ElenLiL", same_peer=True
             ),
         ],
         [
             Button.switch_inline(
-                "Fᴅʀᴏɪᴅ Sᴇᴀʀᴄʜ", query="fdroid telegram", same_peer=True
+                "جستجوی اف دروید", query="fdroid telegram", same_peer=True
             ),
-            Button.switch_inline("Sᴀᴀᴠɴ sᴇᴀʀᴄʜ", query="saavn", same_peer=True),
+            Button.switch_inline("جستجوی ساون", query="saavn", same_peer=True),
         ],
         [
-            Button.switch_inline("Tʟ Sᴇᴀʀᴄʜ", query="tl", same_peer=True),
-            Button.switch_inline("GɪᴛHᴜʙ ғᴇᴇᴅs", query="gh", same_peer=True),
+            Button.switch_inline("جستجوی تلگرام", query="tl", same_peer=True),
+            Button.switch_inline("فید های گیت هاب", query="gh", same_peer=True),
         ],
-        [Button.switch_inline("OᴍɢUʙᴜɴᴛᴜ", query="omgu cutefish", same_peer=True)],
+        [Button.switch_inline("اومگ اوبونتو", query="omgu cutefish", same_peer=True)],
         [
             Button.inline(
-                "« Bᴀᴄᴋ",
+                "« بازگشت",
                 data="open",
             ),
         ],
@@ -371,7 +371,7 @@ async def opner(event):
 async def on_plug_in_callback_query_handler(event):
     await event.edit(
         get_string("inline_5"),
-        buttons=Button.inline("Oᴘᴇɴ Aɢᴀɪɴ", data="open"),
+        buttons=Button.inline("بازکردن مجدد", data="open"),
     )
 
 
@@ -392,17 +392,17 @@ def page_num(index, key):
         new_ = fl_[0] if fl_ else []
         index = 0
     if index == 0 and len(fl_) == 1:
-        new_.append([Button.inline("« Bᴀᴄᴋ »", data="open")])
+        new_.append([Button.inline("« بازگشت »", data="open")])
     else:
         new_.append(
             [
                 Button.inline(
-                    "« Pʀᴇᴠɪᴏᴜs",
+                    "« قبلی",
                     data=f"uh_{key}_{index-1}",
                 ),
-                Button.inline("« Bᴀᴄᴋ »", data="open"),
+                Button.inline("« بازگشت »", data="open"),
                 Button.inline(
-                    "Nᴇxᴛ »",
+                    "بعدی »",
                     data=f"uh_{key}_{index+1}",
                 ),
             ]
@@ -427,7 +427,7 @@ async def ibuild(e):
     pic = ok.get("media")
     btn = ok.get("button")
     if not (pic or txt):
-        txt = "Hey!"
+        txt = "هی!"
     if pic:
         try:
             include_media = True
