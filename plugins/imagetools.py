@@ -5,52 +5,52 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ فرمان های دردسترس -
 
 • `{i}border <reply to photo/sticker>`
-    To create border around that media..
+    برای ساخت حاشیه دوره مدیا..
     Ex - `{i}border 12,22,23`
        - `{i}border 12,22,23 ; width (in number)`
 
 • `{i}grey <reply to any media>`
-    To make it black nd white.
+    برای سیاهو سفید کردن
 
 • `{i}color <reply to any Black nd White media>`
-    To make it Colorfull.
+    برای رنگی کردن.
 
 • `{i}toon <reply to any media>`
-    To make it toon.
+    برای کارتونی کردن.
 
 • `{i}danger <reply to any media>`
-    To make it look Danger.
+    برای خطرناک کردن.
 
 • `{i}negative <reply to any media>`
-    To make negative image.
+    برای نگاتیو کردن.
 
 • `{i}blur <reply to any media>`
-    To make it blurry.
+    برای محو کردن.
 
 • `{i}quad <reply to any media>`
-    create a Vortex.
+    برای گرداب کردن.
 
 • `{i}mirror <reply to any media>`
-    To create mirror pic.
+    برای اینه کردن.
 
 • `{i}flip <reply to any media>`
-    To make it flip.
+    برای برعکس کردن.
 
 • `{i}sketch <reply to any media>`
-    To draw its sketch.
+    برای نقاشی کردن.
 
 • `{i}blue <reply to any media>`
-    just cool.
+    برای سرد کردن.
 
 • `{i}csample <color name /color code>`
    example : `{i}csample red`
              `{i}csample #ffffff`
 
 • `{i}pixelator <reply image>`
-    Create a Pixelated Image..
+    برای پیکسلی کردن..
 """
 import os
 
@@ -59,7 +59,7 @@ from . import LOGS, con
 try:
     import cv2
 except ImportError:
-    LOGS.error(f"{__file__}: OpenCv not Installed.")
+    LOGS.error(f"{__file__}: OpenCV نصب نیس.")
 
 import numpy as np
 
@@ -67,7 +67,7 @@ try:
     from PIL import Image
 except ImportError:
     Image = None
-    LOGS.info(f"{__file__}: PIL  not Installed.")
+    LOGS.info(f"{__file__}: PIL  نصب نیس.")
 from telegraph import upload_file as upf
 from telethon.errors.rpcerrorlist import (
     ChatSendMediaForbiddenError,
